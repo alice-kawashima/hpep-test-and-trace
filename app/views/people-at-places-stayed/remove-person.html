@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers for this contact | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">People at places stayed overnight</span>
+    <h1 class="govuk-heading-l">
+      Remove {{ data['contact-given-names-1'] | default('Elizabeth') }} {{ data['contact-family-name-1'] | default('Jones') }}
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['contact-given-names-1'] | default('Elizabeth') }} {{ data['contact-family-name-1'] | default('Jones') }}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Stayed overnight
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Dates stayed overnight
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>Tuesday 2 August</p>
+          <p>Wednesday 3 August</p>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          elizabeth.jones@example.com
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07712345678
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Over 18
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+
+    </dl>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <form action="/case/household/contacts/check-answers/check-contact-answers" accept-charset="UTF-8" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              Are you sure you want to remove {{ data['contact-given-names-1'] | default('Elizabeth') }} {{ data['contact-family-name-1'] | default('Jones') }}?
+            </h2>
+          </legend>
+
+          <div class="govuk-form-group">
+
+            <div class="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="remove-contact-yes" name="remove-contact" type="radio" value="Yes, I want to remove this person">
+                <label class="govuk-label govuk-radios__label" for="lived-with-others-1">
+                  Yes, I want to remove this person
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="remove-contact-no" name="remove-contact" type="radio" value="No, I do not want to remove them">
+                <label class="govuk-label govuk-radios__label" for="lived-with-others-2">
+                  No, I do not want to remove this person
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

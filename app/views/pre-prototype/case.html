@@ -1,0 +1,115 @@
+{% extends 'layout_unbranded.html' %}
+
+{% block pageTitle %}
+Pre-prototype questions
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Pre-prototype questions
+    </h1>
+
+    <p class="govuk-body">
+      This information will be used in the prototype you are about to test to make it more realistic.
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <h2 class="govuk-heading-m">
+      Name given when registering for a test
+    </h2>
+
+    <span id="current-time"></span>
+
+    <form action="/invite/email/case" accept-charset="UTF-8" method="post">
+
+      <div class="govuk-form-group">
+        <label for="individual-first-name" class="govuk-label">
+          Given name(s)
+        </label>
+        <input id="upstream-given-names" class="govuk-input govuk-!-width-one-half" autocomplete="upstream-given-names" spell_check="false" type="text" name="upstream-given-names" value="{{ data['upstream-given-names'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label for="individual-last-name" class="govuk-label">
+          Family name
+        </label>
+        <input id="upstream-family-name" class="govuk-input govuk-!-width-one-half" autocomplete="upstream-family-name" spell_check="false" type="text" name="upstream-family-name" value="{{ data['upstream-family-name'] }}">
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <h2 class="govuk-heading-m">
+        Age given when registering for a test
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h3 id="h3-content" class="govuk-fieldset__heading">
+              Age
+            </h3>
+          </legend>
+
+          <div class="govuk-radios" id="test-age">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="test-over-18" name="test-age" type="radio" value="18 or over" {{ checked("test-age", "18 or over") }}>
+              <label class="govuk-label govuk-radios__label" for="test-over-18">
+                18 or over
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="test-under-18" name="test-age" type="radio" value="Under 18" {{ checked("test-age", "Under 18") }}>
+              <label class="govuk-label govuk-radios__label" for="test-under-18">
+                Under 18
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <h2 class="govuk-heading-m">
+        Contact details (used to receive test result)
+      </h2>
+
+      <div class="govuk-form-group">
+        <label for="individual-email-field" class="govuk-label">
+          Email address
+        </label>
+        <span class="govuk-hint" id="email-address-hint">
+          For example, mail@example.com
+        </span>
+        <input id="upstream-email-address" class="govuk-input govuk-!-width-two-thirds" aria-describedby="email-address-hint" autocomplete="upstream-email-address" spellcheck="false" type="email" name="upstream-email-address" value="{{ data['upstream-email-address'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label for="test-phone-field" class="govuk-label">
+          Telephone number
+        </label>
+        <span class="govuk-hint" id="test-phone-hint">
+          For example, 01632 960 001, 07700 900 982 or (+44) 7700 900 982
+        </span>
+        <input id="test-phone-field" class="govuk-input govuk-!-width-one-third" aria-describedby="test-phone-hint" autocomplete="tel" type="tel" name="plf1-phone-number" value="{{ data['plf1-phone-number'] }}">
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Generate prototype
+      </button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

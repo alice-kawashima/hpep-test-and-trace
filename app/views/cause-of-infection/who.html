@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Who is the person you think you caught [disease type] from? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Cause of infection</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Who is the person you think you caught [disease type] from?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-1" name="example-hints" type="radio" value="partner">
+              <label id="option-1-label" class="govuk-label govuk-radios__label" for="option-1">
+                A spouse or partner
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-2" name="example-hints" type="radio" value="adult">
+              <label id="option-2-label" class="govuk-label govuk-radios__label" for="option-2">
+                An adult family member (18 or over) who lives with you
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-3" name="example-hints" type="radio" value="adult">
+              <label id="option-3-label" class="govuk-label govuk-radios__label" for="option-3">
+                Another adult (18 or over) who lives with you
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-4" name="example-hints" type="radio" value="child">
+              <label id="option-4-label" class="govuk-label govuk-radios__label" for="option-4">
+                A child, dependent or minor (under 18) who lives with you
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-5" name="example-hints" type="radio" value="support bubble">
+              <label id="option-5-label" class="govuk-label govuk-radios__label" for="option-5">
+                Someone in your support bubble
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-6" name="example-hints" type="radio" value="visitor">
+              <label id="option-6-label" class="govuk-label govuk-radios__label" for="option-6">
+                A visitor (not in your support bubble)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-7" name="example-hints" type="radio" value="none of these">
+              <label id="option-7-label" class="govuk-label govuk-radios__label" for="option-7">
+                Someone else
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-8" name="example-hints" type="radio" value="prefer not to say">
+              <label id="option-8-label" class="govuk-label govuk-radios__label" for="option-8">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Why are we asking this?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>
+            This helps us to understand how [disease type] spreads in a household.
+          </p>
+          <p>
+            We keep your answer confidential. We will not ask for any other details about this person.
+          </p>
+        </div>
+      </details>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Who is the person {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} thinks they caught [disease type] from?');
+      $("#option-2-label").html('An adult family member (18 or over) who lives with them');
+      $("#option-3-label").html('Another adult (18 or over) who lives with them');
+      $("#option-4-label").html('A child, dependent or minor (under 18) who lives with them');
+      $("#option-5-label").html('Someone in their support bubble');
+      $("#option-6-label").html('A visitor (not in their support bubble)');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Did these people travel outside of the UK shortly before they tested positive for [disease type]? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/case/household/contacts/currently-isolating" accept-charset="UTF-8" method="post">
+
+      <h1 class="govuk-heading-l">
+        Which countries did you visit on this trip before entering the UK?
+      </h1>
+
+      <div class="govuk-hint">
+        Only include countries you visited from Sunday 17 July to Sunday 31 July.
+      </div>
+
+      <div class="govuk-hint">
+        If you travelled more than once during this time, enter those details as a separate trip.
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="first-name">
+          Country
+        </label>
+        <div id="my-autocomplete-container-1" name="country-1" class="autocomplete__wrapper my-autocomplete-container govuk-!-width-two-thirds">
+        </div>
+      </div>
+
+      <p id="rowcontainer" class="govuk-body">
+        <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
+          Add another country
+        </a>
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    const countries = new Array();
+    countries[0] = "Afghanistan";
+    countries[1] = "Aland Islands";
+    countries[2] = "Albania";
+    countries[3] = "Alderney";
+    countries[4] = "Algeria";
+    countries[5] = "American Samoa";
+    countries[6] = "Andorra";
+    countries[7] = "Angola";
+    countries[8] = "Anguilla";
+    countries[9] = "Antarctica";
+
+    accessibleAutocomplete({
+      element: document.querySelector('#my-autocomplete-container-1'),
+      id: 'my-autocomplete', // To match it to the existing <label>.
+      source: countries
+    });
+
+    // Add a contact
+    window.stageInc = 1;
+
+    $(document).on("click", "#add-country", function() {
+      var clickInc = stageInc++;
+      $('#rowcontainer').before('<div class="newCountry" id="country-' + clickInc++ +
+        '"><div class="govuk-form-group"><label class="govuk-label" for="my-autocomplete-container-' + clickInc + '">Country</label><input id="my-autocomplete-container-' + clickInc + '" name="country-' + clickInc +
+        '" class="autocomplete__wrapper govuk-input govuk-!-width-two-thirds"></div><div class="govuk-form-group govuk-!-width-one-third"><p class="govuk-body-s"><a href="#" class="govuk-link govuk-link--no-visited-state remove-country">Remove<span class="govuk-visually-hidden"> country</span></a></p></div>'
+      );
+    });
+
+    // Remove a contact
+    $(document).on("click", ".remove-country", function() {
+      $(this).parent().parent().parent('.newCountry').hide();
+      console.log($(this).parent());
+    });
+  }
+</script>
+{% endblock %}

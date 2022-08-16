@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Invite email
+{% endblock %}
+
+{% block bodyStart %}
+<div class="govuk-cookie-banner" data-nosnippet role="region">
+  <div class="govuk-width-container">
+
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">
+          New email
+        </strong>
+        <span class="govuk-phase-banner__text">
+          You have received a new email.
+        </span>
+      </p>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body">
+          <strong>From:</strong> UK Health Security Agency<br>
+          <strong>To:</strong> {{ data['upstream-given-names'] | default('Sarah') }} {{ data['upstream-family-name'] | default('Philips') }}<br>
+          <strong>Date:</strong> <span id="today"></span> at <span id="current-time">09:01</span><br>
+          <strong>Subject:</strong> An important message from UK Health Security Agency
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      URGENT: Follow up on your positive test result
+    </h1>
+
+    <p>
+      {{ data['upstream-given-names'] | default('Sarah')}} (Account ID: z8a673bf)
+    </p>
+    <p>
+      You have tested positive for COVID-19 and must self-isolate. You need to complete your UK Health Security Agency information. We can then give you more advice about your self-isolation, including the end date.
+    </p>
+    <p>
+      We will also ask you about people you have been in contact with while you may have been infectious. This is so we can give them important health advice and support.
+    </p>
+    <p>
+      To complete your information, sign in to UK Health Security Agency using your account ID and unique URL.
+    </p>
+    <p>
+      Account ID: z8a673bf<br>
+      URL: <a href="/start" style="color: blue;">https://contact-tracing.phe.gov.uk/invitation/accept?invitation_token=DiQdp6UxygCo6Vzfshpd</a>
+    </p>
+
+    <p>
+      Do this without delay and help protect yourself, your community and the NHS. If you cannot complete online, a member of the Test and Trace team will call you soon (from 0300 013 5000).
+    </p>
+    <p>
+      Kind regards,<br>
+      UK Health Security Agency
+    </p>
+
+    <!--<form action="/case/start/create-password" accept-charset="UTF-8" method="post">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>-->
+
+    <p class="govuk-body">
+      By using this service you are agreeing to our <a role="link" aria-label="Privacy notice link" href="/help/privacy-notice">privacy policy</a>.
+    </p>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your places you stayed overnight | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Check your places you stayed overnight from Monday 1 August 2022 to Wednesday 3 August 2022
+    </h1>
+
+    <div class="govuk-form-group">
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            {{ data['address-1-line-1'] | default('1 Sovereign Way') }} (current address)
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width: 30%">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            {{ data['address-2-line-1'] | default('Southampton General Hospital') }}
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width: 30%">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width: 30%">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <form name="myForm" action="/case/household/contacts/names/add-another" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="anyone-else-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              Do you need to add another place?
+            </h2>
+          </legend>
+
+          <span class="govuk-error-message" id="anyone-else-error-message">
+          </span>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="anyone-else-yes" name="anyone-else" type="radio" value="Yes, I need to add another person">
+              <label class="govuk-label govuk-radios__label" for="anyone-else-yes">
+                Yes, I need to add another place
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="anyone-else-no" name="anyone-else" type="radio" value="No, I do not need to add anyone">
+              <label class="govuk-label govuk-radios__label" for="anyone-else-no">
+                No, I do not need to add another place
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No, I am completing this for them") {
+      var proxyBanner = document.getElementById("proxy-banner");
+      proxyBanner.style.display = 'block';
+      document.getElementById("proxy-banner").innerHTML =
+        '<div class="govuk-card__content content-display"><div class="icon-wrapper"><p>i</p></div><div><p class="govuk-card__title govuk-u-margin-bottom-0">Enter this information as if you are <strong>{{ data["positive-case-first-name"] | default("John")}} {{ data["positive-case-last-name"] | default("Richardson")}}</strong></p></div></div>';
+      return false;
+    }
+  }
+
+  // Errors
+  function validateForm() {
+    var anyoneElse = document.forms["myForm"]["anyone-else"].value;
+
+    if (anyoneElse == "" || anyoneElse == null) {
+
+      // Error form group styling
+      var formGroup = document.getElementById("anyone-else-form-group");
+      formGroup.classList.add("govuk-form-group--error");
+
+      // Error message
+      document.getElementById("anyone-else-error-message").innerHTML = '<span class="govuk-u-visually-hidden">Error:</span> Select yes if you need to add another person';
+
+      // Error summary
+      var errorSummary = document.getElementById("error-summary");
+      errorSummary.innerHTML =
+        '<h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#anyone-else-error-message">Select yes if you need to add another person</a></li></ul></div>';
+      errorSummary.style.display = 'block';
+      errorSummary.focus();
+      return false;
+    }
+  }
+</script>
+{% endblock %}

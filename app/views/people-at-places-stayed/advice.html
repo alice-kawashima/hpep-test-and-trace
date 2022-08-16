@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Advice for people you live with | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">People at places stayed overnight</span>
+    <h1 id="h1-content" class="govuk-heading-l">
+      Advice for people you live with
+    </h1>
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          People that do not have to self-isolate
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body">
+          You are responsible for letting the following people know that you have named them as a contact:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><strong>{{ data['contact-first-name-1'] | default('Jacqueline')}} {{ data['contact-last-name-1'] | default('Richardson') }}</strong></li>
+          <li><strong>{{ data['contact-first-name-2'] | default('Leila')}} {{ data['contact-last-name-2'] | default('Richardson') }}</strong></li>
+        </ul>
+        <p class="govuk-body">
+          They do not have to self-isolate. They are strongly advised to take daily lateral flow tests until <strong>Saturday 13 August (including this date)</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          People that do have to self-isolate, unless exempt
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-card__description">
+          We need more information to send these people the right advice. We have sent them an email and a text message with further instructions.
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><strong>{{ data['contact-first-name-3'] | default('Tessa') }} {{ data['contact-last-name-3'] | default('Richardson') }}</strong></li>
+        </ul>
+        <p class="govuk-card__description">
+          Unless they are exempt, it is their legal duty to stay at home and self-isolate. The last day of their 10-day self-isolation is <strong>Saturday 13 August (including this date)</strong>.
+        </p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              People exempt from self-isolation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>
+              People are exempt from self-isolation if they:
+            </p>
+            <ul>
+              <li>are under 18 years old</li>
+              <li>are fully vaccinated</li>
+              <li>have taken part in an approved COVID-19 vaccine trial</li>
+              <li>have a proven medical exemption from having the COVID-19 vaccine</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <form action="/case/household/visitors/had-visitors" accept-charset="UTF-8" method="post">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Advice for people {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} lives with');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Do you know their email address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="/case/household/contacts/phone" onsubmit="return validateForm()" method="post" required>
+
+      <span class="govuk-caption-l">People at places stayed overnight</span>
+      <div class="govuk-form-group" id="know-email-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which email address can we contact {{ data['contact-first-name-1'] | default('Elizabeth') }} {{ data['contact-last-name-1'] | default('Jones') }} on?
+            </h1>
+          </legend>
+
+          <div class="govuk-hint">
+            Consider using contact details of a responsible adult that can pass on the advice to the person. For example, if the person is a child or someone in care.
+          </div>
+
+          <div class="govuk-radios govuk-radios--conditional">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="email-address-case" name="contact-email-address-1" type="radio" value="{{ data['test-email-address'] | default('sarah.philips@example.com') }}"
+                {{ checked("contact-email-address-1", "{{ data['test-email-address'] | default('sarah.philips@example.com') }}") }}>
+              <label class="govuk-label govuk-radios__label" for="email-address-known-case">
+                Use my email address: {{ data['test-email-address'] | default('sarah.philips@example.com') }}
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="email-address-another" name="contact-email-address-1" type="radio" aria-controls="conditional-contact-1" aria-expanded="false" value=""
+                {{ checked("contact-email-address-1", "Another email address") }}>
+              <label class="govuk-label govuk-radios__label" for="email-address-another">
+                Another email address
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-visually-hidden" for="email">
+                  Email address
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="email" name="contact-email-1" type="email" value="{{ data['contact-email-1'] }}">
+              </div>
+
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="email-address-no" name="contact-email-address-1" type="radio" value="No email address" {{ checked("contact-email-address-1", "No email address") }}>
+              <label class="govuk-label govuk-radios__label" for="email-address-no">
+                They do not have an email address
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

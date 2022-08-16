@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What type of place is your current address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="/case/about-you/vaccines/had-vaccine/had-vaccine" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Which days were you at {{ data["stay-address-1-line-1"] | default("33 Rocky Park Road") }}?
+            </h1>
+          </legend>
+
+          <div id="days-stayed-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input id="care-home" class="govuk-checkboxes__input" type="checkbox" value="Monday 1 August" name="dates-stayed">
+              <label for="prison" class="govuk-label govuk-checkboxes__label">
+                Monday 1 August
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input id="prison" class="govuk-checkboxes__input" type="checkbox" value="Tuesday 2 August" name="dates-stayed">
+              <label for="prison" class="govuk-label govuk-checkboxes__label">
+                Tuesday 2 August
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input id="another-type" class="govuk-checkboxes__input" type="checkbox" value="Wednesday 3 August" name="dates-stayed">
+              <label for="another-type" class="govuk-label govuk-checkboxes__label">
+                Wednesday 3 August
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#h1-content').html('Which days was {{ data["upstream-case-given-names"] | default("Sarah") }} {{ data["upstream-case-family-name"] | default("Philips") }} at {{ data["stay-address-1-line-1"] | default("33 Rocky Park Road") }}?');
+    }
+  }
+</script>
+{% endblock %}

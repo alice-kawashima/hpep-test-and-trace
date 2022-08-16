@@ -1,0 +1,169 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<!--<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>-->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <span class="govuk-caption-l">Personal details</span>
+    <h1 id="h1-content" class="govuk-heading-l">
+      Check your answers before submitting your information
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['case-given-names'] | default('Sarah') }} {{ data['case-family-name'] | default('Philips') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Are you the named person?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['proxy'] | default('Yes') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> if you are person</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Person completing information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['proxy-given-names'] | default('Jim') }} {{ data['proxy-family-name'] | default('Philips') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> person completing information</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reason completing information
+        </dt>
+        <dd id="proxy-why" class="govuk-summary-list__value">
+          {{ data['why-proxy'] | default('Parent or legal guardian') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> reason completing information</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact preference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <!--<p class="govuk-body">Email</p>
+          <p class="govuk-body">sarah.philips@example.com</p>-->
+          <p class="govuk-body">{{ data['contact-preference'] | default('Text message') }}</p>
+          <p class="govuk-body">07700 900457</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact preference</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          sarah.phillips@example.com
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> email address</span>
+          </a>
+        </dd>
+      </div>
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07700 900457
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> phone number</span>
+          </a>
+        </dd>
+      </div>-->
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Occupation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Student
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> occupation</span>
+          </a>
+        </dd>
+      </div>-->
+    </dl>
+
+    <h2 id="h2-content" class="govuk-heading-m">
+      Now submit your information
+    </h2>
+
+    <p class="govuk-body">
+      By submitting this information, you confirm that to the best of your knowledge, these details are correct. Once submitted you cannot edit details.
+    </p>
+
+    <form action="/form-handler" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button id="button-content" class="govuk-button" data-module="govuk-button">
+        Submit your information
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Check your answers before submitting {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s information');
+      $('#h2-content').html('Now submit their information');
+      $('#button-content').html('Now submit their information');
+      return false;
+    }
+  }
+
+  var proxyWhy = $('proxy-why').text();
+  $('proxy-why').html(proxyWhy.replace(',', '<br>'));
+
+  //@Html.Raw('proxy-why'.Replace(",","<br>"));
+</script>
+{% endblock %}

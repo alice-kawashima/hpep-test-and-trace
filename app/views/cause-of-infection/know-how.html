@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Do you think you know how you caught [disease type]? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Cause of infection</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Do you think you know how you caught [disease type]?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Yes" onclick="changeYes();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Maybe" onclick="changeNo();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                No
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="No" onclick="changeYes();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                I'm not sure
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="No" onclick="changeNo();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Why are we asking this?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p id="details-p1-content">
+            It is important for us to understand if you know how you caught [disease type]. This helps us to learn how the virus spreads from person to person.
+          </p>
+          <p>
+            This knowledge is used to improve national and local measures to control the virus. Local Public Health Teams use the information to identify possible outbreaks in your community.
+          </p>
+          <p>
+            We keep your answers confidential. We will not ask you to identify anybody by name.
+          </p>
+        </div>
+      </details>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Does {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} think they know how they caught [disease type]?');
+      $("#details-p1-content").html(
+        'It is important for us to understand if {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} knows how they caught [disease type]. This helps us to learn how the virus spreads from person to person.'
+        );
+      return false;
+    }
+  }
+</script>
+{% endblock %}

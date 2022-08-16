@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Do you want to answer the equality questions? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" method="post" class="form">
+
+      <span class="govuk-caption-l">Equality information</span>
+      <h1 id="h1-content" class="govuk-heading-l">
+        We have received your information
+      </h1>
+
+      <p class="govuk-body">
+        Before you finish using the service, we’d like to ask some equality questions.
+      </p>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="equalities-info-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to answer the equality questions?
+          </legend>
+
+          <div id="equalities-info-hint" class="govuk-hint">
+            These questions are optional. Your answers help us understand how public health threats affect different groups of people.
+          </div>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="equalities-info" name="equalities-info" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="equalities-info">
+                Yes, answer the equality questions (takes 2 minutes)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="equalities-info-2" name="equalities-info" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="equalities-info-2">
+                No, skip the equality questions
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('We have received {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s information?');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+We cannot match you with our records | UK Health Security Agency
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      We cannot match {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s details
+    </h1>
+
+    <p class="govuk-body">
+      We cannot match {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s details to our records. You cannot submit your information at this time.
+    </p>
+
+    <p class="govuk-body">
+      A member of the UK Health Security Agency team might call you soon. You'll know it's us when you see a call from the number 0300 013 5000. This number does not take incoming calls, so wait for us to call you.
+    </p>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

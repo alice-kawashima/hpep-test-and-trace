@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 id="h1-content" class="govuk-heading-l">
+      Check your answers before submitting your information
+    </h1>
+
+    <h2 class="govuk-heading-m">
+      Addresses lived or stayed at from Monday 1 August 2022 to Wednesday 3 August 2022
+    </h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          {{ data['address-1-line-1'] | default('1 Sovereign Way') }} (current address)
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 30%">
+          <!--<a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> address</span>
+          </a>-->
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          {{ data['address-2-line-1'] | default('33 Rocky Park Road') }}
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 30%">
+          <!--<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>-->
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          {{ data['address-3-line-1'] | default('Southampton General Hospital') }}
+        </dd>
+        <dd class="govuk-summary-list__actions" style="width: 30%">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>
+        </dd>
+      </div>
+      <hr class="govuk-section-break govuk-section-break--m">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Add another place stayed overnight</a>
+    </dl>
+
+    <h2 id="h2-content" class="govuk-heading-m">
+      Now submit your information
+    </h2>
+
+    <p class="govuk-body">
+      By submitting this information, you confirm that to the best of your knowledge, these details are correct. Once submitted you cannot edit details.
+    </p>
+
+    <form action="/form-handler" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button id="button-content" class="govuk-button" data-module="govuk-button">
+        Submit your information
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Check your answers before submitting {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s information');
+      $('#h2-content').html('Now submit their information');
+      $('#button-content').html('Now submit their information');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

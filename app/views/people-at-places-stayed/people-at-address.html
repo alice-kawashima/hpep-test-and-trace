@@ -1,0 +1,110 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+People at address | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">People at places stayed overnight</span>
+    <h1 class="govuk-heading-l">
+      People at {{ data['current-address-line-1'] | default('1 Sovereign Way')}} from Monday 1 August to Wednesday 3 August
+    </h1>
+
+    <p class="govuk-body">
+      Do:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li id="do-item-1-content">include visitors you had close contact with, like friends, family or anyone who worked at your home</li>
+      <li>include people who stayed overnight</li>
+    </ul>
+
+    <p class="govuk-body">
+      Don&#39;t:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>do not include doctors, nurses, social care workers, or care workers who visited your home</li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is close contact?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Close contact means you have had any of the following types of contact with someone:</p>
+        <ul>
+          <li>face-to-face contact including coughing, or having a face-to-face conversation within one metre</li>
+          <li>been within one metre for one minute or longer without face-to-face contact</li>
+          <li>been within 2 metres of someone for more than 15 minutes, either as a one-off contact or added up together over one day</li>
+        </ul>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <form name="myForm" action="/case/household/visitors/date" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="had-visitors-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 id="h2-content" class="govuk-fieldset__heading">
+              Did you have anyone visit or stay overnight?
+            </h2>
+          </legend>
+
+          <div class="govuk-form-group">
+
+            <div class="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="had-visitors-yes" name="had-visitors" type="radio" value="Yes"">
+                <label class=" govuk-label govuk-radios__label" for="had-visitors-yes">
+                  Yes
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="had-visitors-no" name="had-visitors" type="radio" value="No"">
+                <label class=" govuk-label govuk-radios__label" for="had-visitors-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#do-item-1-content').html('include visitors they had close contact with, like friends, family or anyone who worked at their home');
+      $('#h2-content').html('Did {{ data["case-given-names"] | default("Sarah") }} {{ data["case-family-name"] | default("Philips") }} have anyone visit or stay overnight?');
+    }
+  }
+</script>
+{% endblock %}

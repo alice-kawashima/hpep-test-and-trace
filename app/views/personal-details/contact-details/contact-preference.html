@@ -1,0 +1,263 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+How would you prefer to be contacted? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" id="myForm" action="/personal-details/contact-preference-selected" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
+
+      <span class="govuk-caption-l">Personal details</span>
+      <div id="error-form-group-1" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              How would you prefer to be contacted?
+            </h1>
+          </legend>
+
+          <div class="govuk-hint" id="contact-preference-hint">
+            We'll only use contact details to send you advice.
+          </div>
+
+          <div id="form-1" class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input id="contact-preference-email" aria-controls="contact-preference-email-conditional" class="govuk-radios__input" type="radio" value="Email" name="contactpreference" aria-expanded="false">
+              <label for="contact-preference-email" class="govuk-label govuk-radios__label">
+                Email
+              </label>
+            </div>
+            <div class="govuk-radios__conditional" id="contact-preference-email-conditional">
+              <div id="error-form-group-2" class="govuk-form-group">
+                <label for="contact-preference-email-address" class="govuk-label">
+                  Email address
+                </label>
+                <input id="contact-preference-email-address" class="govuk-input govuk-!-width-two-thirds" value="{{ data['upstream-email-address'] | default('sarah.philips@example.com') }}" type="text" name="contact-preference-email">
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="contact-preference-text-message" aria-controls="contact-preference-text-message-conditional" class="govuk-radios__input" type="radio" value="Text message" name="contactpreference" aria-expanded="false">
+              <label for="contact-preference-text-message" class="govuk-label govuk-radios__label">
+                Text message
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="contact-preference-text-message-conditional">
+              <div id="error-form-group-3" class="govuk-form-group">
+                <label for="contact-preference-mobile-phone" class="govuk-label">
+                  Mobile number
+                </label>
+                <span class="govuk-hint" id="contact-preference-mobile-phone-hint">
+                  For example, 07700 900 982 or (+44) 7700 900 982
+                </span>
+                <input id="contact-preference-mobile-phone" class="govuk-input govuk-input--width-20" aria-describedby="contact-preference-mobile-phone-hint" autocomplete="tel" value="{{ data['test-phone-number'] | default('07700 900457') }}"
+                  type="tel" name="contact-preference-mobile-phone">
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="contact-preference-call" aria-controls="contact-preference-phone-number-conditional" class="govuk-radios__input" type="radio" value="Call" name="contactpreference" aria-expanded="false">
+              <label for="contact-preference-call" class="govuk-label govuk-radios__label">
+                Call
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="contact-preference-phone-number-conditional">
+              <div id="error-form-group-4" class="govuk-form-group">
+                <label for="contact-preference-mobile-phone" class="govuk-label">
+                  Telephone number
+                </label>
+                <span class="govuk-hint" id="contact-preference-mobile-phone-hint">
+                  For example, 07700 900 982 or (+44) 7700 900 982
+                </span>
+                <input id="contact-preference-mobile-phone" class="govuk-input govuk-input--width-20" aria-describedby="contact-preference-mobile-phone-hint" autocomplete="tel" value="{{ data['test-phone-number'] | default('07700 900457') }}"
+                  type="tel" name="contact-preference-mobile-phone">
+              </div>
+            </div>
+
+            <!--<div class="govuk-radios__item">
+              <input id="contact-preference-address" aria-describedby="contact-preference-address-hint" aria-controls="contact-preference-address-conditional"
+                class="govuk-radios__input" type="radio" value="address" name="contact-preference-contact_preference]" aria-expanded="false">
+              <label for="contact-preference-address" class="govuk-label govuk-radios__label">
+                Post (UK addresses only)
+              </label>
+              <span class="govuk-hint govuk-radios__hint" id="contact-preference-address-hint">
+                Only choose this option if you do not have access to email or a mobile phone.
+              </span>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="contact-preference-address-conditional">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line-1">
+                      Building and street <span class="govuk-!-visually-hidden">line 1 of 2</span>
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="address-line-1" type="text" value="{{ data['current-address-line-1'] | default('1 Sovereign Way')}}">
+                  </div>
+
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line-2">
+                      <span class="govuk-!-visually-hidden">Building and street line 2 of 2</span>
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-2" name="address-line-2" type="text" value="{{ data['current-address-line-2'] | default('Boyatt Wood')}}">
+                  </div>
+
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-town">
+                      Town or city
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="address-town" name="address-town" type="text" value="{{ data['current-town-or-city'] | default('Eastleigh')}}">
+                  </div>
+
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-postcode">
+                      Postcode
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-quarter" id="address-postcode" name="address-postcode" type="text" value="{{ data['current-postcode'] | default('SO50 4SA')}}">
+                  </div>
+
+                </fieldset>
+              </div>
+
+              <p class="govuk-body">
+                <a href="#" class="govuk-link govuk-link--no-visited-state">Search for another address</a>
+              </p>
+
+            </div>-->
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#h1-content').html('How should we contact {{ data["upstream-case-given-names"] | default("Sarah") }} {{ data["upstream-case-family-name"] | default("Philips") }}?');
+      $('#contact-preference-hint').html('We&#39;ll only use contact details to send them advice.');
+    }
+  }
+
+  // Errors
+  function validateForm() {
+    $('#error-form-group-1').removeClass('govuk-form-group--error');
+    $('#error-form-group-2').removeClass('govuk-form-group--error');
+    $('#proxy-given-names').removeClass('govuk-input--error');
+    $('#proxy-family-name').removeClass('govuk-input--error');
+    $('#error-message-1').remove();
+    $('#error-message-1').html('');
+    $('#error-message-2').remove();
+    $('#error-message-2').html('');
+    $('#error-summary').remove();
+    $('#error-summary-list').html('');
+    $('#error-list-item-1').html('');
+    $('#error-list-item-2').html('');
+
+    //var contactPreference = $('[name=contactpreference]');
+    var contactPreference = $('input[name=contactpreference]:checked', '#myForm').val();
+    var emailAddress = $('#contact-preference-email-address').val();
+    var mobilePhoneNumber = $('#contact-preference-mobile-phone');
+    var telephoneNumber = $('#contact-preference-telephone-number');
+
+    if (contactPreference == "" || contactPreference == null) {
+      $('#myForm').prepend(
+        '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul id="error-summary-list" class="govuk-list govuk-error-summary__list"><li id="error-list-item-1"></li></ul></div></div>'
+      );
+
+      // Error form group styling
+      $('#error-form-group-1').addClass('govuk-form-group--error');
+
+      // Error message
+      $('#form-1').prepend('<p id="error-message-1" class="govuk-error-message"></p>');
+      $('#error-message-1').html('<span id="error-1"><span class="govuk-visually-hidden">Error:</span> Select how you prefer to be contacted</span>');
+
+      // Error summary
+      $('#error-list-item-1').html('<a href="#error-1">Select how you prefer to be contacted</a>');
+
+      return false;
+
+    } else {
+      if (contactPreference == "Email") {
+
+        if (emailAddress == "" || emailAddress == null) {
+
+          alert('Email address: ' + emailAddress + '\nelse Email address empty');
+          $('#myForm').prepend(
+            '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul id="error-summary-list" class="govuk-list govuk-error-summary__list"><li id="error-list-item-1"></li></ul></div></div>'
+          );
+
+          // Error form group styling
+          $('#error-form-group-2').addClass('govuk-form-group--error');
+
+          // Error input field styling
+          emailAddress.addClass('govuk-input--error');
+
+          return false;
+        } else {
+          alert('Email address: ' + emailAddress + '\nelse Email address not empty');
+          return true;
+        }
+
+      } else if (contactPreference == "Text message") {
+        if (mobilePhoneNumber == "" || mobilePhoneNumber == null) {
+        $('#myForm').prepend(
+          '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul id="error-summary-list" class="govuk-list govuk-error-summary__list"><li id="error-list-item-1"></li></ul></div></div>'
+        );
+
+        // Error form group styling
+        $('#error-form-group-3').addClass('govuk-form-group--error');
+
+        // Error input field styling
+        mobilePhoneNumber.addClass('govuk-input--error');
+
+        return false;
+
+      } else {
+        return true;
+      }
+
+    } else if (contactPreference == "Call") {
+      if (telephoneNumber == "" || telephoneNumber == null) {
+        $('#myForm').prepend(
+          '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul id="error-summary-list" class="govuk-list govuk-error-summary__list"><li id="error-list-item-1"></li></ul></div></div>'
+        );
+
+        // Error form group styling
+        $('#error-form-group-4').addClass('govuk-form-group--error');
+
+        // Error input field styling
+        telephoneNumber.addClass('govuk-input--error');
+
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+}
+</script>
+{% endblock %}

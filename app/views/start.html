@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Start | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Health protection</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Active monitoring</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Trace close contacts after a positive test
+    </h1>
+
+    <p class="govuk-body">
+      Use this service if you tested positive for something that might put the health of others at risk, like:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>an infectious illness</li>
+      <li>an exposure to a hazardous substance.</li>
+    </ul>
+
+    <p class="govuk-body">
+      We will use the information you give us to trace people you've been in close contact with. We'll give them advice on how to stay safe. If they should get tested, we'll tell them how. We will not reveal your details to them.
+    </p>
+
+
+    <h2 class="govuk-heading-m">
+      Before you start
+    </h2>
+
+    <p class="govuk-body">
+      We will ask you about:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>places you've been</li>
+      <li>names and contact details of people you've been with</li>
+    </ul>
+
+    <p class="govuk-body">
+      Checking your calendars and social media may help you remember these details.
+    </p>
+
+    <form action="/create-password" accept-charset="UTF-8" method="post">
+
+      <button class="govuk-button" type="submit">
+        Start now
+      </button>
+
+    </form>
+
+    <p class="govuk-body">
+      By using this service you are agreeing to our <a role="link" aria-label="Privacy notice link" href="/help/privacy-notice">privacy policy</a>.
+    </p>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Do you know if this person has tested positive for COVID-19 in recent weeks? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Cause of infection</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Were you in contact with anyone at this location who has recently tested positive for [disease type]?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                No
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="don't know">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                Don't know
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-4" name="covid-certainty" type="radio" value="prefer not to say">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-4">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Was {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} in contact with anyone at this location who has recently tested positive for [disease type]?');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

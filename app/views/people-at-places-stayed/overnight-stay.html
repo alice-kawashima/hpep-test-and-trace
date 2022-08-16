@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Did this visitor stay overnight? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/case/household/visitors/country" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">People at places stayed overnight</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Did {{ data['visitor-first-name-1'] | default('Elizabeth')}} {{ data['visitor-last-name-1'] | default('Jones')}} stay overnight at {{ data['current-address-line-1'] | default('1 Sovereign Way') }}?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="u18-yes" name="nhs-number" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="u18-yes">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="u18-no" name="nhs-number" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="u18-no">
+                No
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

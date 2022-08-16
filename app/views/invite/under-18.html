@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta content="" telephone="no" name="format-detection">
+  <!-- need to add formatting for real phone numbers -->
+  <meta name="viewport" content="" width="device-width">
+  <title>A message from NHS Test and Trace</title>
+
+  <style type="text/css">
+    @media only screen and (min-device-width: 581px) {
+      .content {
+        width: 580px !important;
+      }
+    }
+
+    body {
+      margin: 0 !important;
+    }
+
+    div[style*="margin: 16px 0"] {
+      margin: 0 !important;
+    }
+
+    p {
+      margin: 0 0 20px 0;
+      font-size: 19px;
+      line-height: 25px;
+      color: #0B0C0C;
+    }
+  </style>
+
+  <!--[if gte mso 9]>
+    <style type="text/css">
+      li {
+        margin-left: 4px !important;
+      }
+      table {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+    </style>
+  <![endif]-->
+
+</head>
+
+<body style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; color:#0b0c0c;">
+
+  <table role="presentation" class="content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; max-width: 580px; width: 100% !important;" width"100%">
+    <tr>
+      <td width="10" height="10" valign="middle">
+      </td>
+      <td>
+        <!--[if (gte mso 9)|(IE)]>
+          <table role="presentation" width="560" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;width: 560px;">
+            <tr>
+              <td height="10">
+        <![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse">
+          <tr>
+            <td height="24" width="100%" colspan="2">
+              <br>
+              <p class="nhsuk-body">
+                <strong>From:</strong> NHS Test and Trace<br>
+                <strong>To:</strong> {{ data['test-first-name'] | default('John')}} {{ data['test-last-name'] | default('Richardson')}}<br>
+                <strong>Date:</strong> <span id="today"></span> at <span id="current-time"></span><br>
+                <strong>Subject:</strong> An important message from NHS Test and Trace
+              </p>
+
+              <h1 class="nhsuk-heading-xl">
+                URGENT: Follow up on your positive test result
+              </h1>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse">
+                <tr>
+                  <td style="padding: 0 5px 0 0">
+                    <img src="https://static-logos.notifications.service.gov.uk/1ac6f483-3105-4c9e-9017-dd7fb2752c44-nhs-blue_x2.png" style="display: block; border: 0" height="54" alt="NHS">
+                  </td>
+                  <td width="100%" style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; line-height: 23px;" valign="center">
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+        <![endif]-->
+      </td>
+      <td width=" 10" valign="middle" height="10">
+      </td>
+    </tr>
+  </table>
+
+  <table role="presentation" class="content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; max-width: 580px; width: 100% !important;" width="100%">
+    <tr>
+      <td height="30">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td width="10" valign="middle">
+        <br>
+      </td>
+      <td style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474; max-width: 560px;">
+        <!--[if (gte mso 9)|(IE)]>
+          <table role="presentation" width="560" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;width: 560px;">
+            <tr>
+              <td style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474;">
+        <![endif]-->
+        <p>
+          {{ data['test-first-name'] | default('John')}} (Account ID: z8a673bf)
+        </p>
+        <p>
+          You have tested positive for COVID-19 and must now self-isolate.
+        </p>
+        <p>
+          Our records show that you are under 18. You should show this message to your parent or legal guardian to continue.
+        </p>
+        <p>
+          They need to complete your NHS Test and Trace information. We can then give them more advice about your self-isolation, including the end date.
+        </p>
+        <p>
+          We will also ask them about people you have been in contact with while you may have been infectious. This is so we can give your contacts important health advice and support.
+        </p>
+        <p>
+          To complete this information, sign in to NHS Test and Trace using your account ID and unique URL.
+        </p>
+        <p>
+          Account ID: z8a673bf<br>
+          URL: <a href="/case/start/start" style="color: blue;">https://contact-tracing.phe.gov.uk/invitation/accept?invitation_token=DiQdp6UxygCo6Vzfshpd</a>
+        </p>
+
+        <p>
+          If this cannot be completed online, a member of the team will call you soon (from 0300 013 5000).
+        </p>
+        <p>
+          Kind regards,<br>
+          NHS Test and Trace
+        </p>
+        <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+        <![endif]-->
+      </td>
+      <td width="10" valign="middle">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td height="30">
+        <br>
+      </td>
+    </tr>
+  </table>
+
+  <script type="text/javascript">
+    // Date
+    var TodaysDateStyle = 8;
+
+    function WriteTodaysDate(Style) {
+
+      var months = new Array();
+      months[1] = "January";
+      months[7] = "July";
+      months[2] = "February";
+      months[8] = "August";
+      months[3] = "March";
+      months[9] = "September";
+      months[4] = "April";
+      months[10] = "October";
+      months[5] = "May";
+      months[11] = "November";
+      months[6] = "June";
+      months[12] = "December";
+
+      var days = new Array();
+      days[1] = "Sunday";
+      days[5] = "Thursday";
+      days[2] = "Monday";
+      days[6] = "Friday";
+      days[3] = "Tuesday";
+      days[7] = "Saturday";
+      days[4] = "Wednesday";
+
+      var todaysdate = new Date();
+      var date = todaysdate.getDate();
+      var day = todaysdate.getDay() + 1;
+      var month = todaysdate.getMonth() + 1;
+      var yy = todaysdate.getYear();
+      var year = (yy < 1000) ? yy + 1900 : yy;
+      var year2 = year - (2000 * 1);
+      year2 = (year2 < 10) ? "0" + year2 : year2;
+
+      var dateline = new Array();
+      dateline[8] = days[day] + " " + date + " " + months[month] + " " + year;
+
+      var todaysDateMinusTwo = todaysdate - (1000 * 60 * 60 * 24 * 2);
+      todaysDateMinusTwo = new Date(todaysDateMinusTwo);
+      var dateMinusTwo = todaysDateMinusTwo.getDate();
+      var dayMinusTwo = todaysDateMinusTwo.getDay() + 1;
+      var monthMinusTwo = todaysDateMinusTwo.getMonth() + 1;
+      var yyMinusTwo = todaysDateMinusTwo.getYear();
+      var yearMinusTwo = (yyMinusTwo < 1000) ? yyMinusTwo + 1900 : yyMinusTwo;
+      var year2MinusTwo = yearMinusTwo - (2000 * 1);
+      year2MinusTwo = (year2MinusTwo < 10) ? "0" + year2MinusTwo : year2MinusTwo;
+
+      var datelineMinusTwo = new Array();
+      datelineMinusTwo[8] = days[dayMinusTwo] + " " + dateMinusTwo + " " + months[monthMinusTwo] + " " + yearMinusTwo;
+
+      //var currentDate = new Date();
+      //var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
+
+      //document.write(dateline[Style]);
+      document.getElementById("today").innerHTML = dateline[Style];
+      document.getElementById("two-days-ago").innerHTML = datelineMinusTwo[Style];
+      //document.getElementById("current-time").innerHTML = currentTime;
+
+      const current = new Date();
+
+      const currentTime = current.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      document.getElementById("current-time").innerHTML = currentTime;
+    }
+
+    WriteTodaysDate(TodaysDateStyle);
+
+    const current = new Date();
+
+    const currentTime = current.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    alert(currentTime);
+
+    document.getElementById("current-time").innerHTML = currentTime;
+  </script>
+
+</body>
+
+</html>

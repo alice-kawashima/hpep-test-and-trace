@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Have you been in contact with anyone that tested positive for [disease type]? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">International travel of contacts</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Have you been in contact with anyone that tested positive for [disease type] from Sunday 17 July to Sunday 31 July?
+            </h1>
+          </legend>
+
+          <div class="govuk-hint">
+            This might be one or more people.
+          </div>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Yes" onclick="changeYes();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Maybe" onclick="changeNo();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                No
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="No" onclick="changeYes();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                I'm not sure
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Has {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} been in contact with anyone that tested positive for [disease type] from Sunday 17 July to Sunday 31 July?');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What type of home is your current address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="housing-type-form-group">
+        <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What type of housing is {{ data['current-address-line-1'] | default('1 Sovereign Way')}}?
+              </h1>
+            </legend>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input id="own-home-or-family-home" class="govuk-radios__input" type="radio" value="Your own home, or family home" name="housing-type">
+                <label for="own-home-or-family-home" class="govuk-label govuk-radios__label">
+                  House or flat
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input id="other" class="govuk-radios__input" type="radio" value="Other" name="housing-type">
+                <label for="other" class="govuk-label govuk-radios__label">
+                  Something else
+                </label>
+              </div>
+
+            </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

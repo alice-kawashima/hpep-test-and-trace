@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Who else lives with you? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/case/household/contacts/currently-isolating" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">People at places stayed overnight</span>
+      <h1 class="govuk-heading-l">
+        Name people at {{ data['current-address-line-1'] | default('1 Sovereign Way') }} from Monday 1 August to Wednesday 3 August
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p>
+          <strong>Already added:</strong>
+        </p>
+        <p>
+          {{ data['positive-case-first-name'] | default('Fred') }} {{ data['positive-case-last-name'] | default('Philips') }}
+        </p>
+      </div>
+
+      <div id="error-form-group-1" class="govuk-form-group">
+        <label id="case-given-names-label" for="given-name" class="govuk-label">
+          Given name(s)
+        </label>
+        <input id="case-given-names" class="govuk-input govuk-!-width-two-thirds" autocomplete="case-given-names" spell_check="false" type="text" name="case-given-names" value="">
+      </div>
+
+      <div id="error-form-group-2" class="govuk-form-group">
+        <label id="case-family-name-label" for="family-name" class="govuk-label">
+          Family name
+        </label>
+        <input id="case-family-name" class="govuk-input govuk-!-width-two-thirds" autocomplete="case-family-name" spell_check="false" type="text" name="case-family-name" value="">
+      </div>
+
+      <!--<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div id="error-form-group-1" class="govuk-form-group">
+        <label id="case-given-names-label" for="given-name" class="govuk-label">
+          Given name(s)
+        </label>
+        <input id="case-given-names" class="govuk-input govuk-!-width-two-thirds" autocomplete="case-given-names" spell_check="false" type="text" name="case-given-names" value="">
+      </div>
+
+      <div id="error-form-group-2" class="govuk-form-group">
+        <label id="case-family-name-label" for="family-name" class="govuk-label">
+          Family name
+        </label>
+        <input id="case-family-name" class="govuk-input govuk-!-width-two-thirds" autocomplete="case-family-name" spell_check="false" type="text" name="case-family-name" value="">
+      </div>
+
+      <p class="govuk-body-s">
+        <a href="#" id="add-contact" class="govuk-link govuk-link--no-visited-state">
+          Remove person
+        </a>
+      </p>-->
+
+      <div id="rowcontainer">
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <p class="govuk-body">
+        <a href="#" id="add-contact" class="govuk-link govuk-link--no-visited-state">
+          Add another person
+        </a>
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--m">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What type of place is your current address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="/case/about-you/vaccines/had-vaccine/had-vaccine" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="other-place-form-group">
+        <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What type of place is {{ data['current-address-line-1'] | default('1 Sovereign Way') }}?
+              </h1>
+            </legend>
+
+          <span class="govuk-error-message" id="other-place-error-message">
+          </span>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input id="care-home" class="govuk-radios__input" type="radio" value="Care home" name="other-place">
+              <label for="prison" class="govuk-label govuk-radios__label">
+                Care home
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="childrens-home" class="govuk-radios__input" type="radio" value="Children's home" name="other-place">
+              <label for="childrens-home" class="govuk-label govuk-radios__label">
+                Children's home
+              </label>
+            </div>
+
+            <!--<div class="govuk-radios__item">
+              <input id="hostel" class="govuk-radios__input" type="radio" value="Hostel" name="accommodation-type">
+              <label for="hostel" class="govuk-label govuk-radios__label">
+                Hostel
+              </label>
+            </div>-->
+
+            <div class="govuk-radios__item">
+              <input id="holiday" class="govuk-radios__input" type="radio" value="Holiday place" name="other-place">
+              <label for="holiday" class="govuk-label govuk-radios__label">
+                <!--Holiday place-->Hotel or holiday accommodation
+              </label>
+              <!--<div class="govuk-hint govuk-radios__hint">
+                For example, a hotel, campsite or caravan
+              </div>-->
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="military" class="govuk-radios__input" type="radio" value="Military setting" name="other-place">
+              <label for="military" class="govuk-label govuk-radios__label">
+                Military setting
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="prison" class="govuk-radios__input" type="radio" value="Prison" name="other-place">
+              <label for="prison" class="govuk-label govuk-radios__label">
+                Prison
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="shelter" class="govuk-radios__input" type="radio" value="Shelter" name="other-place">
+              <label for="shelter" class="govuk-label govuk-radios__label">
+                Shelter, hostel or refuge
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="supported-living" class="govuk-radios__input" type="radio" value="Supported living" name="other-place">
+              <label for="supported-living" class="govuk-label govuk-radios__label">
+                Supported living (non-residential care)
+              </label>
+              <!--<div class="govuk-hint govuk-radios__hint">
+                For example, extra care housing
+              </div>-->
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="none-of-these" class="govuk-radios__input" type="radio" value="None of these" name="other-place" aria-controls="other-conditional" aria-expanded="false">
+              <label for="none-of-these" class="govuk-label govuk-radios__label">
+                None of these
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="other-conditional">
+              <div class="govuk-form-group">
+                <label for="event-description" class="govuk-label">
+                  Describe your current place (optional)
+                </label>
+                <input id="event-description" class="govuk-input govuk-u-width-two-thirds" type="text" value="" name="other-place-description">
+              </div>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  // Errors
+  function validateForm() {
+    var otherPlace = document.forms["myForm"]["other-place"].value;
+
+    if (otherPlace == "" || otherPlace == null) {
+
+      // Error form group styling
+      var formGroup = document.getElementById("other-place-form-group");
+      formGroup.classList.add("govuk-form-group--error");
+
+      // Error message
+      document.getElementById("other-place-error-message").innerHTML = '<span class="govuk-visually-hidden">Error:</span> Select the type of place';
+
+      // Error summary
+      var errorSummary = document.getElementById("error-summary");
+      errorSummary.innerHTML =
+        '<h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#other-place-error-message">Select the type of place</a></li></ul></div>';
+      errorSummary.style.display = 'block';
+      errorSummary.focus();
+      return false;
+    }
+  }
+</script>
+{% endblock %}

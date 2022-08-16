@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Your information is complete | NHS Test and Trace
+{% endblock %}
+
+{% block outerContent %}
+<div class="nhsuk-back-link nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0">
+  <a class="nhsuk-back-link__link" href="#" data-turbolinks="false" onclick="goBack()">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-card nhsuk-card--confirmation success-confirmation-display">
+      <div class="nhsuk-card__content success-content-display">
+        <div class="success-icon-wrapper">
+          <p>
+            <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34" alt="check mark">
+              <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#fff"></path>
+            </svg>
+          </p>
+        </div>
+        <div class="nhsuk-u-reading-width">
+          <h1 class="nhsuk-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-0">
+            Your information is complete
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      <h2 class="nhsuk-heading-m">
+        What happens next
+      </h2>
+      <p class="nhsuk-body">
+        Make sure you tell the staff who look after you that you've tested positive for COVID-19. This is to help protect you and those around you.
+      </p>
+
+      <h2 class="nhsuk-heading-m">
+        Providing more information
+      </h2>
+      <p class="nhsuk-body">
+        You have up to 72 hours to update your answers.
+      </p>
+      <p class="nhsuk-body">
+        To access your account again, sign in to <strong>https://contact-tracing.phe.gov.uk</strong> using your account ID <strong>aa4cdfd6</strong>. You can ask a member of staff to do this for you.
+      </p>
+
+      <form action="#" method="post" class="form">
+
+        <button class="nhsuk-button" type="submit">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

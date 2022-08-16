@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What type of home is your current address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="/case/about-you/vaccines/had-vaccine/had-vaccine" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="housing-type-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of housing is {{ data['current-address-line-1'] | default('1 Sovereign Way') }}?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input id="own-home-or-family-home" class="govuk-radios__input" type="radio" value="Your own home, or family home" name="housing-type">
+              <label for="own-home-or-family-home" class="govuk-label govuk-radios__label">
+                <!--Family home, or own home-->
+                Home for one family or single resident, or a private home with a lodger
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="shared-living-space" class="govuk-radios__input" type="radio" value="Shared living space" name="housing-type">
+              <label for="shared-living-space" class="govuk-label govuk-radios__label">
+                Shared living space
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                <!--For example, a flatshare or student halls of residence-->
+                For example, a flatshare or houseshare
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="shared-living-space" class="govuk-radios__input" type="radio" value="Shared living space" name="housing-type">
+              <label for="shared-living-space" class="govuk-label govuk-radios__label">
+                Student accommodation
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                For example, university-owned flats or halls of residence
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="other" class="govuk-radios__input" type="radio" value="Other" name="housing-type">
+              <label for="other" class="govuk-label govuk-radios__label">
+                Other
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  // Proxy check
+  window.onload = function() {
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No, I am completing this for them") {
+      var proxyBanner = document.getElementById("proxy-banner");
+      proxyBanner.style.display = 'block';
+      document.getElementById("proxy-banner").innerHTML =
+        '<div class="govuk-card__content content-display"><div class="icon-wrapper"><p>i</p></div><div><p class="govuk-card__title govuk-u-margin-bottom-0">Enter this information as if you are <strong>{{ data["positive-case-first-name"] | default("John")}} {{ data["positive-case-last-name"] | default("Richardson")}}</strong></p></div></div>';
+      return false;
+    }
+  }
+
+  // Errors
+  function validateForm() {
+    var housingType = document.forms["myForm"]["housing-type"].value;
+
+    if (housingType == "" || housingType == null) {
+
+      // Error form group styling
+      var formGroup = document.getElementById("housing-type-form-group");
+      formGroup.classList.add("govuk-form-group--error");
+
+      // Error message
+      document.getElementById("housing-type-error-message").innerHTML = '<span class="govuk-u-visually-hidden">Error:</span> Select the type of housing';
+
+      // Error summary
+      var errorSummary = document.getElementById("error-summary");
+      errorSummary.innerHTML =
+        '<h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#housing-type-error-message">Select the type of housing</a></li></ul></div>';
+      errorSummary.style.display = 'block';
+      errorSummary.focus();
+      return false;
+    }
+  }
+</script>
+{% endblock %}

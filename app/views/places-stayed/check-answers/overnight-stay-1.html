@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">
+      Check your answers for {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}<br>
+          {{ data['address-3-town-city'] | default('Plymouth') }}<br>
+          {{ data['address-3-post-code'] | default('PL9 7DQ') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> address</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of housing
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['address-3-housing-type'] | default('House or flat') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> type of housing</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Days stayed overnight
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['address-2-days-stayed'] | default('Monday 1 August') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> days stayed overnight</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <form action="/form-handler" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

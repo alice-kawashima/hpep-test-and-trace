@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <span class="govuk-caption-l">Personal details</span>
+    <h1 id="h1-content" class="govuk-heading-l">
+      Your submitted answers
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['positive-case-given-names'] | default('Sarah') }} {{ data['positive-case-family-name'] | default('Philips') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Are you the person?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['proxy'] | default('Yes') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Person completing information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['proxy-given-names'] | default('Jim') }} {{ data['proxy-family-name'] | default('Philips') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reason completing information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['why-proxy'] | default('Parent or legal guardian') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact preference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <!--<p class="govuk-body">{{ data['contact-preference'] | default('Email') }}</p>
+          <p class="govuk-body">sarah.philips@example.com</p>-->
+          <p class="govuk-body">{{ data['contact-preference'] | default('Text message') }}</p>
+          <p class="govuk-body">07700 900457</p>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          sarah.phillips@example.com
+        </dd>
+      </div>
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07700 900457
+        </dd>
+      </div>-->
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Occupation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Student
+        </dd>
+      </div>-->
+    </dl>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

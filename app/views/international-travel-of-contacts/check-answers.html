@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers before submitting your information | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">International travel of contacts</span>
+    <h1 id="h1-content" class="govuk-heading-l">
+      Check your answers before submitting your information
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt id="key-1" class="govuk-summary-list__key">
+          In contact with anyone that tested positive
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['travel-contacts-positive'] | default('Yes') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/names/add-another" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if you were in contact with anyone that tested positive</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt id="key-2" class="govuk-summary-list__key">
+          These people travelled outside of the UK
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <!--{{ data['cause-where'] | default('1 Sovereign Way, Eastleigh') }}-->
+          {{ data['travel-contacts-abroad'] | default('Yes') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/know-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if these people travelled outside of the UK</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt id="key-3" class="govuk-summary-list__key">
+          Countries they travelled to
+        </dt>
+        <dd class="govuk-summary-list__value">
+          France<br>
+          Norway<br>
+          Montenegro
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/enter-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if you were in contact with someone at this location who has recently tested positive</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <h2 id="h2-content" class="govuk-heading-m">
+      Now submit your information
+    </h2>
+
+    <p class="govuk-body">
+      By submitting this information, you confirm that to the best of your knowledge, these details are correct. Once submitted you cannot edit details.
+    </p>
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <button id="button-content" class="govuk-button" data-module="govuk-button">
+        Submit your information
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Check your answers before submitting {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s information');
+      $('#h2-content').html('Now submit their information');
+      $('#button-content').html('Submit their information');
+      return false;
+    }
+  }
+</script>
+{% endblock %}

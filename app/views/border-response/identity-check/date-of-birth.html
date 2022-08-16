@@ -1,0 +1,327 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What is your date of birth? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" id="myForm" action="#" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
+
+      <div id="error-form-group" class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              What is {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }}&#39;s date of birth?
+            </h1>
+          </legend>
+
+          <div id="date-of-birth-hint" class="govuk-hint">
+            For example, 31 3 1980. This is to check your identity with our records.
+          </div>
+
+          <div class="govuk-date-input" id="form-1">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-day" name="date-of-birth-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-month" name="date-of-birth-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-of-birth-year" name="date-of-birth-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  // Errors
+  function validateForm() {
+    $('#error-form-group').removeClass('govuk-form-group--error');
+    $('#date-of-birth-day').removeClass('govuk-input--error');
+    $('#date-of-birth-month').removeClass('govuk-input--error');
+    $('#date-of-birth-year').removeClass('govuk-input--error');
+    $('#error-message-1').remove();
+    $('#error-message-1').html('');
+    $('#error-summary').remove();
+    $('#error-summary-list').html('');
+
+    var todayDate = new Date();
+    var todayDay = todayDate.getDate();
+    var todayMonth = todayDate.getMonth();
+    var todayYear = todayDate.getFullYear();
+
+    var todayDateNumber = todayYear + '' + (todayMonth + 1) + '' + (todayDay);
+
+    var dobDayInput = document.forms["myForm"]["date-of-birth-day"].value;
+    var dobMonthInput = document.forms["myForm"]["date-of-birth-month"].value;
+    var dobYearInput = document.forms["myForm"]["date-of-birth-year"].value;
+
+    var dobDay = Number(dobDayInput);
+    var dobMonth = Number(dobMonthInput);
+    var dobYear = Number(dobYearInput);
+
+    var dobDateNumber = dobYear + '' + dobMonth + '' + dobDay;
+
+    $('#form-1').prepend('<p id="error-message-1" class="govuk-error-message"></p>');
+
+    $('#myForm').prepend(
+      '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" autofocus><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul id="error-summary-list" class="govuk-list govuk-error-summary__list"></ul></div></div>'
+    );
+    //setTimeout( function() { $('#error-summary').focus() }, 100 );
+
+    // Blank fields
+    if ((dobDay == "" || dobDay == null) && (dobMonth == "" || dobMonth == null) && (dobYear == "" || dobYear == null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+      $('#date-of-birth-month').addClass('govuk-input--error');
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-1"><span class="govuk-visually-hidden">Error:</span> Enter their date of birth</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-1">Enter their date of birth</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay == "" || dobDay == null) && (dobMonth == "" || dobMonth == null) && (dobYear != "" || dobYear != null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+      $('#date-of-birth-month').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-2"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a day and a month</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-2">Date of birth must include a day and a month</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay == "" || dobDay == null) && (dobMonth != "" || dobMonth != null) && (dobYear == "" || dobYear == null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-3"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a day and a year</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-3">Date of birth must include a day and a year</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay != "" || dobDay != null) && (dobMonth == "" || dobMonth == null) && (dobYear == "" || dobYear == null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-month').addClass('govuk-input--error');
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-4"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a month and a year</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-4">Date of birth must include a month and a year</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay == "" || dobDay == null) && (dobMonth != "" || dobMonth != null) && (dobYear != "" || dobYear != null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-5"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a day</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-5">Date of birth must include a day</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay != "" || dobDay != null) && (dobMonth == "" || dobMonth == null) && (dobYear != "" || dobYear != null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-month').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-6"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a month</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-6">Date of birth must include a month</a></li>');
+
+      return false;
+    }
+
+    if ((dobDay != "" || dobDay != null) && (dobMonth != "" || dobMonth != null) && (dobYear == "" || dobYear == null)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-7"><span class="govuk-visually-hidden">Error:</span> Date of birth must include a year</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-7">Date of birth must include a year</a></li>');
+
+      return false;
+    }
+
+    if (dobDay > 31 || dobDay < 1 || !$.isNumeric(dobDay) || dobMonth > 12 || dobMonth < 1 || !$.isNumeric(dobMonth) || dobYear < 1900 || !$.isNumeric(dobYear)) {
+
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+      $('#date-of-birth-month').addClass('govuk-input--error');
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-8"><span class="govuk-visually-hidden">Error:</span> Date of birth must be a real date</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-8">Date of birth must be a real date</a></li>');
+
+      return false;
+    }
+
+    if (dobYear > todayYear) {
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-year').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-10"><span class="govuk-visually-hidden">Error:</span> Date of birth must be in the past</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-10">Date of birth must be in the past</a></li>');
+
+      return false;
+
+    } else if (dobYear == todayYear && dobMonth > todayMonth + 1) {
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-month').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-11"><span class="govuk-visually-hidden">Error:</span> Date of birth must be in the past</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-11">Date of birth must be in the past</a></li>');
+
+      return false;
+
+    } else if (dobYear == todayYear && dobMonth == todayMonth + 1 && dobDay > todayDay) {
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error input field styling
+      $('#date-of-birth-day').addClass('govuk-input--error');
+
+      // Error message
+      $('#error-message-1').html('<span id="error-12"><span class="govuk-visually-hidden">Error:</span> Date of birth must be in the past</span>');
+
+      // Error summary
+      $('#error-summary-list').html('<li><a href="#error-12">Date of birth must be in the past</a></li>');
+
+      return false;
+    }
+
+    if (dobDay != 1 && dobMonth != 1 && dobYear != 1970) {
+      let i = 0;
+
+      do {
+        // Error form group styling
+        $('#error-form-group').addClass('govuk-form-group--error');
+
+        // Error input field styling
+        $('#date-of-birth-day').addClass('govuk-input--error');
+        $('#date-of-birth-month').addClass('govuk-input--error');
+        $('#date-of-birth-year').addClass('govuk-input--error');
+
+        // Error message
+        $('#error-message-1').html('<span id="error-12"><span class="govuk-visually-hidden">Error:</span> Date of birth does not match Passenger Locator Form</span>');
+
+        // Error summary
+        $('#error-summary-list').html('<li><a href="#error-12">Date of birth does not match Passenger Locator Form</a></li>');
+
+        // Increment
+        ++i;
+      }
+      while (i < 3);
+
+      return false;
+    }
+
+    $("main").load("?control=msgs", {}, function() {
+      $('#error-summary').focus()
+    });
+
+  }
+</script>
+{% endblock %}

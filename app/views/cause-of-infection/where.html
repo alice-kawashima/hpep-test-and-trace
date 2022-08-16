@@ -1,0 +1,200 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Where do you think you caught [disease type]? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Cause of infection</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-fieldset__heading">
+              Where do you think you caught [disease type]?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Home" onClick="household();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                1 Sovereign Way, Eastleigh
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Place stayed overnight
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Home" onClick="household();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                33 Rocky Park Road, Plymouth
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Place stayed overnight
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                Sunny Days, Little Clacton Road, Great Holland, Frinton-on-Sea
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Sunday 31 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Home" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                Other educational setting not listed
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Wednesday 3 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                ABC Ltd, 1 The Avenue, London
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Tuesday 2 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                ABC Ltd, 1 The Avenue, London
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Wednesday 3 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                ABC Ltd, 1 The Avenue, London
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Friday 29 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                ABC Ltd, 1 The Avenue, London
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Saturday 30 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-1" name="covid-certainty" type="radio" value="Home" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-1">
+                Lidl, Tuel Lane, Sowerby Bridge
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Saturday 30 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-2" name="covid-certainty" type="radio" value="Stay" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-2">
+                Village Green, 82 Dukeswood Drive, Dibden Purlieu, Southampton
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Sunday 7 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="Work-or-education" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                Pure Gym, 2 Toscana Retail Park, Bangor
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Wednesday 3 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-3" name="covid-certainty" type="radio" value="Work-or-education" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-3">
+                Visiting a prison / detention facility
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Saturday 30 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-4" name="covid-certainty" type="radio" value="Activity" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-4">
+                Travel from New Addington to Shenfield
+              </label>
+              <div class="govuk-hint govuk-radios__hint" id="example-hints-1-item-hint">
+                Sunday 31 July
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-4" name="covid-certainty" type="radio" value="Activity" onClick="outsideHome();">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-4">
+                Somewhere else
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="covid-certainty-4" name="covid-certainty" type="radio" value="Activity">
+              <label class="govuk-label govuk-radios__label" for="covid-certainty-4">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Where does {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} think they caught [disease type]?');
+      return false;
+    }
+  }
+</script>
+{% endblock %}
