@@ -1,44 +1,436 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Home – GOV.UK Prototype Kit
+HPEP prototypes | UK Health Security Agency
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        Prototype your service using GOV.UK Prototype Kit
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+    <h1 class="govuk-heading-xl">
+      HPEP prototypes
+    </h1>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+    <h2 class="govuk-heading-l">
+      Onboarding
+    </h2>
 
-      <h2 class="govuk-heading-m">About this page</h2>
+    <h3 class="govuk-heading-m">
+      Invites and reminders
+    </h3>
 
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
+    <p class="govuk-body">
+      Positive case
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Invite email
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Invite text message
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Reminder email
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Reminder text message
+        </a>
+      </li>
+    </ul>
 
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
+    <hr class="govuk-section-break govuk-section-break--m">
 
-      <h2 class="govuk-heading-m">Examples and documentation</h2>
+    <p class="govuk-body">
+      Exposed individual
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Invite email
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Invite text message
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Reminder email
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Reminder text message
+        </a>
+      </li>
+    </ul>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a href="/docs/tutorials-and-examples">Tutorials and templates</a>
-        </li>
-        <li>
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-        </li>
-      </ul>
-    </div>
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Border response
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          UKHSA intro text message
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Arrived in UK? text message
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Link to webform text message
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          New PLF required text message
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <h3 class="govuk-heading-m">
+      Secure login
+    </h3>
+
+    <p class="govuk-body">
+      Start
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Positive case
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Exposed individual
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Generic
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      First-time user
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Create password
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Returning user
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Sign in
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Forgotten password
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <h3 class="govuk-heading-m">
+      Identity verification
+    </h3>
+
+    <p class="govuk-body">
+      Basic identity verification
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Date of birth
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Not matched
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-l">
+      About you
+    </h2>
+
+    <h3 class="govuk-heading-m">
+      Personal details
+    </h3>
+
+    <p class="govuk-body">
+      Name
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/case">
+          What is the name of the person who tested positive?
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/exposed-individual">
+          What is the name of the person identified as a contact of someone who tested positive?
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Proxy
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/proxy/are-you-named-person">
+          Are you the named person?
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/proxy/name">
+          What is your name?
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/proxy/reason">
+          Why are you completing this person's information?
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Contact details
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/contact-details/contact-preference">
+          How would you prefer to be contacted?
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/contact-details/email-address">
+          What is your name?
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/contact-details/telephone-number">
+          Why are you completing this person's information?
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Occupation
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <em>to be designed</em>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Check answers (Personal details)
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/check-answers">
+          Check your answers before submitting your information
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/check-answers--locked">
+          Check your answers before submitting your information (locked)
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <h3 class="govuk-heading-m">
+      Health information
+    </h3>
+
+    <p class="govuk-body">
+      NHS number
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/case">
+          Know NHS number
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/exposed-individual">
+          What is your NHS number?
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Vaccines
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <em>to be designed</em>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Treatment (medication)
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <em>to be designed</em>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Check answers (Health information)
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/health-information/check-answers">
+          Check your answers before submitting your information
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/health-information/check-answers--locked">
+          Check your answers before submitting your information (locked)
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <h3 class="govuk-heading-m">
+      Symptoms and health advice
+    </h3>
+
+    <p class="govuk-body">
+      Symptoms
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms">
+          Symptoms
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms">
+          Symptoms start date
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Check answers (Symptoms and health advice)
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers">
+          Check your answers before submitting your information
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers--locked">
+          Check your answers before submitting your information (locked)
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <p class="govuk-body">
+      Health advice
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/health-advice">
+          Health advice
+        </a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-l">
+      Where you lived or stayed
+    </h2>
+
+    <h2 class="govuk-heading-l">
+      Where you travelled
+    </h2>
+
+    <h2 class="govuk-heading-l">
+      Places you visited
+    </h2>
+
+    <h2 class="govuk-heading-l">
+      About your contacts
+    </h2>
+
+    <h2 class="govuk-heading-l">
+      Additional information
+    </h2>
+
+    <h2 class="govuk-heading-l">
+      Complete form
+    </h2>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <p class="govuk-body-s">
+      Last updated 16 August 2022
+    </p>
+
   </div>
+</div>
 
 {% endblock %}
