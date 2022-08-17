@@ -20,7 +20,7 @@ Did these people travel outside of the UK shortly before they tested positive fo
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 id="h1-content" class="govuk-fieldset__heading">
-              Did you travel outside of the UK or take any domestic flights from Sunday 17 July to Sunday 31 July?
+              When did you arrive in the UK?
             </h1>
           </legend>
 
@@ -28,23 +28,45 @@ Did these people travel outside of the UK shortly before they tested positive fo
             This includes any travel outside the UK, as well as domestic flights staying within the UK
           </div>
 
-          <div class="govuk-radios">
+          <<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        When was your passport issued?
+      </h1>
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="answer-1" name="contacts-travelled" type="radio" value="Yes">
-              <label class="govuk-label govuk-radios__label" for="answer-1">
-                Yes
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="answer-3" name="contacts-travelled" type="radio" value="No">
-              <label class="govuk-label govuk-radios__label" for="answer-3">
-                No
-              </label>
-            </div>
-
-          </div>
+  </fieldset>
+</div>
         </fieldset>
       </div>
 

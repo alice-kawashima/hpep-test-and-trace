@@ -15,36 +15,70 @@ Did these people travel outside of the UK shortly before they tested positive fo
     <form action="/case/household/contacts/currently-isolating" accept-charset="UTF-8" method="post">
 
       <h1 class="govuk-heading-l">
-        Did you travel into the UK from Sunday 17 July to Sunday 31 July?
+        Tell us about a trip entering the UK
       </h1>
 
+      <div class="govuk-hint">
+        You can add more trips later if you travelled more than once.
+      </div>
 
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="first-name">
+          Start of travel
+        </label>
+        <div class="govuk-hint">
+          This must be outside the UK
+        </div>
+        <div id="my-autocomplete-container-1" name="country-1" class="autocomplete__wrapper my-autocomplete-container govuk-!-width-two-thirds">
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="first-name">
+          Stops (before arriving in the UK)
+        </label>
+        <div class="govuk-hint">
+          Only add stops if they connect journeys of a non-direct trip
+        </div>
+
+      <p id="rowcontainer" class="govuk-body">
+        <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
+          Add another country
+        </a>
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="first-name">
+          UK arrival port
+        </label>
+        <div class="govuk-hint">
+          This is the transport types
+        </div>
+        <div id="my-autocomplete-container-1" name="country-1" class="autocomplete__wrapper my-autocomplete-container govuk-!-width-two-thirds">
+        </div>
+      </div>
 
 
 
       <div class="govuk-form-group">
-        <div class="govuk-radios">
+        <label class="govuk-label" for="first-name">
+          Stops (after arriving in the UK)
+        </label>
+        <div class="govuk-hint">
+          Only add stops if they connect journeys of a non-direct trip
+        </div>
 
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="answer-1" name="contacts-travelled" type="radio" value="Yes">
-            <label class="govuk-label govuk-radios__label" for="answer-1">
-              Yes
-            </label>
-          </div>
+      <p id="rowcontainer" class="govuk-body">
+        <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
+          Add stop
+        </a>
+      </p>
 
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="answer-3" name="contacts-travelled" type="radio" value="No">
-            <label class="govuk-label govuk-radios__label" for="answer-3">
-              No
-            </label>
-          </div>
-</div>
-</div>
-          <hr class="govuk-section-break govuk-section-break--m">
+      <hr class="govuk-section-break govuk-section-break--m">
 
-          <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
 
     </form>
 
