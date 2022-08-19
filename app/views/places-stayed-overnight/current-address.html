@@ -12,7 +12,7 @@ Where are you living or staying right now? | UK Health Security Agency
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/places-stayed/accommodation" accept-charset="UTF-8" method="post">
+    <form action="/places-stayed-overnight/accommodation/housing-type" accept-charset="UTF-8" method="post">
 
       <span class="govuk-caption-l">Places stayed overnight</span>
       <div class="govuk-form-group">
@@ -46,14 +46,14 @@ Where are you living or staying right now? | UK Health Security Agency
             <hr class="govuk-section-break govuk-section-break--m">
 
             <p class="govuk-body">
-              <a href="#" class="govuk-link govuk-link--no-visited-state" id="cant-find-address">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" id="cant-find-address" onclick="">
                 Can't find the address you are looking for?
               </a>
             </p>
 
           </div>
 
-          <div id="current-address-fields">
+          <div id="current-address-fields" hidden>
 
             <div class="govuk-form-group">
               <label class="govuk-label" for="current-address-line-1">
@@ -86,7 +86,7 @@ Where are you living or staying right now? | UK Health Security Agency
             <hr class="govuk-section-break govuk-section-break--m">
 
             <p class="govuk-body">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" id="search-another-address">
                 Search for another address
               </a>
             </p>
@@ -125,6 +125,18 @@ Where are you living or staying right now? | UK Health Security Agency
       $('#current-address-hint').html('This might be their current home, or a place they&#39;re staying at, like a hotel or a friend&#39;s house.');
       $('#outside-uk-link').html('They&#39;re outside of the UK right now');
     }
+
+    // Can't find the address you are looking for? CTA
+    $("#cant-find-address").click(function() {
+      $('#current-address-search').hide();
+      $('#current-address-fields').show();
+    });
+
+    // Search for another address CTA
+    $("#search-another-address").click(function() {
+      $('#current-address-fields').hide();
+      $('#current-address-search').show();
+    });
   }
 
   const addresses1 = [
@@ -172,30 +184,7 @@ Where are you living or staying right now? | UK Health Security Agency
     source: addresses
     //if addresses[7] selected then show fields with address populated
   })
-
-  //if selection made
-  /*$(document).ready(function() {
-    $("button").click(function() {
-      $("p").toggleClass("main");
-      $('#current-address-fields').html(
-        '<div class="govuk-form-group"><label class="govuk-label" for="current-address-line-1">Building and street <span class="govuk-!-visually-hidden">line 1 of 2</span></label><input class="govuk-input govuk-!-width-two-thirds" id="current-address-line-1" name="current-address-line-1" type="text" value="33 Rocky Park Road"></div><div class="govuk-form-group"><label class="govuk-label" for="current-address-line-2"><span class="govuk-!-visually-hidden">Building and street line 2 of 2</span></label><input class="govuk-input govuk-!-width-two-thirds" id="current-address-line-2" name="current-address-line-2" type="text" value=""></div><div class="govuk-form-group"><label class="govuk-label" for="current-town-or-city">Town or city</label><input class="govuk-input govuk-!-width-one-half" id="current-town-or-city" name="current-town-or-city" type="text" value="Plymouth"></div><div class="govuk-form-group"><label class="govuk-label" for="current-postcode">Postcode</label><input class="govuk-input govuk-!-width-one-quarter" id="current-postcode" name="current-postcode" type="text" value="PL9 7DQ"></div>'
-      );
-    });
-
-    $("button").click(function() {
-      $('#cant-find-address').on('click', function() {
-        $('#cant-find-address').toggle();
-      });
-    });
-  });*/
-
-  var currentAddressFields = '<div class="govuk-form-group"><label class="govuk-label" for="current-address-line-1">Building and street <span class="govuk-!-visually-hidden">line 1 of 2</span></label><input class="govuk-input" id="current-address-line-1" name="current-address-line-1" type="text" value=""></div><div class="govuk-form-group"><label class="govuk-label" for="current-address-line-2"><span class="govuk-!-visually-hidden">Building and street line 2 of 2</span></label><input class="govuk-input" id="current-address-line-2" name="current-address-line-2" type="text" value=""></div><div class="govuk-form-group"><label class="govuk-label" for="current-town-or-city">Town or city</label><input class="govuk-input govuk-!-width-two-thirds" id="current-town-or-city" name="current-town-or-city" type="text" value=""></div><div class="govuk-form-group"><label class="govuk-label" for="current-postcode">Postcode</label><input class="govuk-input govuk-input--width-10" id="current-postcode" name="current-postcode" type="text" value=""></div>';
-
-  $(document).ready(function() {
-    $(addresses).click(function() {
-      $("#current-address-search").remove();
-      currentAddressFields.prependTo('#add-view-above');
-    });
-  });
 </script>
+
+<noscript><meta http-equiv="refresh" content="0; url=current-address-no-js.html" /></noscript>
 {% endblock %}
