@@ -3,39 +3,44 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// Border response
-router.post('/border-response/messages/sms-response', function(req, res) {
+// BORDER RESPONSE
 
-  var response = req.session.data['response']
+// SMS answer
+router.post('/invites-and-reminders/border-response', function(req, res) {
 
-  if (response == "Yes" || response == "YES" || response == "yes" || response == "y" || response == "Y") {
-    res.redirect('/border-response/messages/sms--yes')
-  } else if (response == "No" || response == "NO" || response == "no" || response == "n" || response == "N") {
-    res.redirect('/border-response/messages/sms--no')
+  var borderResponse = req.session.data['response']
+
+  if (borderResponse == "Yes" || borderResponse == "YES" || borderResponse == "yes" || borderResponse == "y" || borderResponse == "Y") {
+    res.redirect('/invites-and-reminders/border-response/yes--sms')
+  } else if (borderResponse == "No" || borderResponse == "NO" || borderResponse == "no" || borderResponse == "n" || borderResponse == "N") {
+    res.redirect('/invites-and-reminders/border-response/no--sms')
   } else {
-    res.redirect('/border-response/messages/sms--in-country')
+    res.redirect('/invites-and-reminders/border-response/in-country--sms')
   }
 
 })
 
-router.post('/border-response/confirmation', function(req, res) {
+// Compliance question
+router.post('/confirmation/border-response', function(req, res) {
 
   var compliance = req.session.data['compliance']
 
   if (compliance == "Yes") {
-    res.redirect('/border-response/confirmation/compliant')
+    res.redirect('/confirmation/border-response/compliant')
   } else {
-    res.redirect('/border-response/confirmation/non-compliant')
+    res.redirect('/confirmation/border-response/non-compliant')
   }
 
 })
 
-// Personal details
+// PERSONAL DETAILS
+
+// Proxy
 router.post('/personal-details/proxy/answer', function(req, res) {
 
-  var compliance = req.session.data['proxy']
+  var proxy = req.session.data['proxy']
 
-  if (compliance == "Yes") {
+  if (proxy == "Yes") {
     res.redirect('/personal-details/contact-details/contact-preference')
   } else {
     res.redirect('/personal-details/proxy/name')

@@ -4,8 +4,19 @@
 You must quarantine | UK Health Security Agency
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
+  {{ govukHeader({
+    serviceName: "",
+    navigation: [
+      {
+        href: "/save-and-exit",
+        text: "Save and exit"
+      }
+    ]
+  }) }}
+{% endblock %}
 
+{% block beforeContent %}
 {% endblock %}
 
 {% block content %}

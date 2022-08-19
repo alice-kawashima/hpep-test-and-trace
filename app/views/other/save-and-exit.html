@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Your information has been saved | UK Health Security Agency
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: ""
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Your information has been saved
+    </h1>
+
+    <p class="govuk-body">
+      You may now securely exit the service
+    </p>
+
+    <p class="govuk-body">
+      To return to this form and continue, select the link in the email or text message we sent you.
+    </p>
+
+  </div>
+</div>
+{% endblock %}

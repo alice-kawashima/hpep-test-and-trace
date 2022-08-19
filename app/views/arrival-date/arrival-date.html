@@ -4,6 +4,18 @@
 Did you arrive in the UK? | UK Health Security Agency
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    serviceName: "",
+    navigation: [
+      {
+        href: "/save-and-exit",
+        text: "Save and exit"
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block beforeContent %}
 {% endblock %}
 

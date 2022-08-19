@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Support during your self-isolation | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span id="section-caption" class="govuk-caption-l">Support</span>
+    <h1 id="h1-content" class="govuk-heading-l">
+      Support during your self-isolation
+    </h1>
+
+    <p id="p-1-content" class="govuk-body">
+      While you self-isolate, life can be difficult. Your local council and organisations may be able to support you during your self-isolation period.
+    </p>
+
+    <p id="p-2-content">You can get support with:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li id="li-1-content">paying your bills, rent or mortgage</li>
+      <li>getting food or medicine</li>
+      <li>mental health and wellbeing</li>
+      <li id="li-4-content">job loss, or losing work if you&#39;re self-employed</li>
+      <li>worry about going in to work</li>
+      <li id="li-6-content">making sure you have somewhere to live</li>
+      <li id="li-7-content">finding help if you feel unsafe where you live or you’re worried about someone else</li>
+    </ul>
+
+    <form name="myForm" id="myForm" action="#" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
+
+      <div id="error-form-group" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 id="h2-content" class="govuk-fieldset__heading">
+              Do you think you might need any support during self-isolation?
+            </h2>
+          </legend>
+
+          <div id="form-1" class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="example-1" name="support" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="example-1">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="example-2" name="support" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="example-2">
+                No
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $("#h1-content").html('Support for {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} during their self-isolation');
+      $('#p-1-content').html('While they self-isolate, life can be difficult for them. Their local council and organisations may be able to support them during their self-isolation period.');
+      $('#p-2-content').html('They can get support with:');
+      $('#li-1-content').html('paying their bills, rent or mortgage');
+      $('#li-4-content').html('job loss, or losing work if they&#39;re self-employed');
+      $('#li-6-content').html('making sure they have somewhere to live');
+      $('#li-7-content').html('finding help if they feel unsafe where they live or they&#39;re worried about someone else');
+      $('#h2-content').html('Do you think {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} might need any support during self-isolation?');
+
+      return false;
+    }
+  }
+
+  // Errors
+  function validateForm() {
+    var support = $('[name=support]');
+
+    if (support.is(":checked")) {
+      return true;
+    } else {
+      // Error form group styling
+      $('#error-form-group').addClass('govuk-form-group--error');
+
+      // Error message
+      $('#form-1').prepend('<p id="error-message-1" class="govuk-error-message"></p>');
+      $('#error-message-1').html('<span id="error-1"><span class="govuk-visually-hidden">Error:</span> Select yes if you think you might need support during self-isolation</span>');
+
+      // Error summary
+      $('#section-caption').prepend(
+        '<div id="error-summary" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#error-1">Select yes if you think you might need support during self-isolation</a></li></ul></div></div>'
+        );
+
+      return false;
+    }
+  }
+</script>
+{% endblock %}

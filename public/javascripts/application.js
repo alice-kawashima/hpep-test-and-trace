@@ -10,7 +10,7 @@ $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
 
-import accessibleAutocomplete from 'accessible-autocomplete'
+//import accessibleAutocomplete from 'accessible-autocomplete'
 
 // Back button
 function goBack() {

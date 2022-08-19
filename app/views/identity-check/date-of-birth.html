@@ -1,18 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-What is your date of birth? | UK Health Security Agency
+What is their date of birth? | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
-
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form name="myForm" id="myForm" action="#" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
+    <form name="myForm" id="myForm" action="/confirmation/border-response/agreement" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
 
       <div id="error-form-group" class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
@@ -317,10 +316,6 @@ What is your date of birth? | UK Health Security Agency
 
       return false;
     }
-
-    $("main").load("?control=msgs", {}, function() {
-      $('#error-summary').focus()
-    });
 
   }
 </script>

@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+NHS Test and Trace | NHS Test and Trace
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <h1 class="nhsuk-heading-xl">
+        NHS Test and Trace
+      </h1>
+
+      <p class="nhsuk-body">
+        This service will use the information you give us to trace your recent contacts. If you are under 18, you should ask your parent or legal guardian to complete this with you.<!--We'll let them know that they must self-isolate because they've been in contact with someone who has tested positive. This helps to stop the spread of COVID-19.-->
+      </p>
+
+      <p class="nhsuk-body">
+        We'll also give you advice about self-isolation and where to find support.
+      </p>
+
+      <p>
+        Use this service if you:
+      </p>
+      <ul>
+        <li>have tested positive for COVID-19</li>
+        <li>are the parent or legal guardian of a child or young person under the age of 18 who has tested positive for COVID-19</li>
+        <li>are giving us information for someone aged 18 or over who has tested positive for COVID-19</li>
+      </ul>
+
+      <h2 class="nhsuk-heading-l">
+        Before you start
+      </h2>
+
+      <p>
+        We will ask you about:
+      </p>
+      <ul>
+        <li>places visited recently, like places of work or education</li>
+        <li>names and contact details of people at those places</li>
+      </ul>
+
+      <p class="nhsuk-body">
+        To help you remember these details, you might find it helpful to look at your calendars, social media, or the NHS COVID-19 app<!-- if you've been using it-->.
+      </p>
+
+      <p class="nhsuk-body">
+        By giving us these details, you are helping to stop the spread of COVID-19.
+      </p>
+
+      <p class="nhsuk-body">
+        If you are delayed or have problems completing this service online, a member of the NHS Test and Trace team will call you soon. You'll know it's us when you see a call from the number 0300 013 5000.
+      </p>
+
+      <form action="/case/start/create-password" accept-charset="UTF-8" method="post">
+
+        <button class="nhsuk-button" type="submit">
+          Start now
+        </button>
+
+      </form>
+
+      <p class="nhsuk-body">
+        By using this service you are agreeing to our <a role="link" aria-label="Privacy notice link" href="/help/privacy-notice">privacy policy</a>.
+      </p>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

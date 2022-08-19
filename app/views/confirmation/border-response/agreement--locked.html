@@ -1,11 +1,22 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-You must quarantine | UK Health Security Agency
+Confirm your agreement to quarantine | UK Health Security Agency
 {% endblock %}
 
-{% block outerContent %}
+{% block header %}
+  {{ govukHeader({
+    serviceName: "",
+    navigation: [
+      {
+        href: "/save-and-exit",
+        text: "Save and exit"
+      }
+    ]
+  }) }}
+{% endblock %}
 
+{% block beforeContent %}
 {% endblock %}
 
 {% block content %}

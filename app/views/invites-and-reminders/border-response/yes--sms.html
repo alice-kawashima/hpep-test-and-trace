@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-Text message 2a
+Border response is yes SMS
 {% endblock %}
 
 {% block header %}
@@ -14,11 +14,17 @@ Text message 2a
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half" style="background-color: #ffffff;">
 
-    <a href="#" class="govuk-back-link">Back to messages</a>
+    <div class="">
+      <a href="#" class="govuk-back-link">Messages</a>
+
+      <h1 class="govuk-heading-s govuk-!-text-align-centre">
+        +44 7860 057 406
+      </h1>
+    </div>
 
     <div class="govuk-!-width-three-quarters govuk-!-margin-top-2 govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: #d8dde0; border-radius: 15px;">
       <p class="govuk-body">
-        {{ data['plf1-full-name'] | default('SAM RICHARDSON') }}
+        {{ data['plf-given-name'] | default('Sarah') }} {{ data['plf-family-name'] | default('Philips') }}
       </p>
       <p class="govuk-body">
         This is the United Kingdom Health Security Agency (UKHSA).
@@ -31,9 +37,6 @@ Text message 2a
       </p>
       <p class="govuk-body">
         Reply YES or NO
-      </p>
-      <p class="govuk-body govuk-!-margin-bottom-0">
-        All texts are free.
       </p>
     </div>
 
@@ -50,16 +53,13 @@ Text message 2a
         DO NOT REPLY
       </p>
       <p class="govuk-body">
-        {{ data['plf1-full-name'] | default('SAM RICHARDSON') }}
-      </p>
-      <p class="govuk-body">
         Thank you.
       </p>
       <p class="govuk-body">
-        NHS Test and Trace needs to tell you important information about what you must do to quarantine. This keeps you safe and protects public health.
+        The UK Health Security Agency needs to tell you important information about what you must do to quarantine. This keeps you safe and protects public health.
       </p>
       <p class="govuk-body">
-        Confirm you have read and understood these rules by visiting <a class="govuk-link" href="/border-response/agreement/agreement">https://border-response.ukhsa.gov.uk/</a> without delay.
+        Confirm you have read and understood these rules by visiting <a class="govuk-link" href="/identity-check/date-of-birth">https://border-response.ukhsa.gov.uk/547yb6ds5sds</a> without delay.
       </p>
       <p class="govuk-body govuk-!-margin-bottom-0">
         UK Health Security Agency

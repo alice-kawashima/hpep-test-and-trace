@@ -4,6 +4,18 @@
 Confirm your agreement to quarantine | UK Health Security Agency
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    serviceName: "",
+    navigation: [
+      {
+        href: "/save-and-exit",
+        text: "Save and exit"
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block beforeContent %}
 {% endblock %}
 
@@ -63,7 +75,9 @@ Confirm your agreement to quarantine | UK Health Security Agency
       </p>
     </div>
 
-    <form name="myForm" id="myForm" action="/border-response/confirmation" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <form name="myForm" id="myForm" action="/confirmation/border-response" onsubmit="return validateForm()" accept-charset="UTF-8" method="post" required>
 
       <div class="govuk-form-group" id="error-form-group">
 

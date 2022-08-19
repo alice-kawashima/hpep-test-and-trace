@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Your account has been set up | NHS Test and Trace
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <form action="/case/about-you/personal-details/name/name" accept-charset="UTF-8" method="post">
+
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h1 class="nhsuk-card__heading nhsuk-heading-l">
+            Your account has been set up
+          </h1>
+        </div>
+      </div>
+
+      <div class="nhsuk-u-reading-width">
+        <p class="nhsuk-body">
+          You are now signed in. You can start entering your NHS Test and Trace information.
+        </p>
+
+        <p class="nhsuk-body">
+          If you are inactive for more than 15 minutes, you will be automatically signed out. This is for your security. If this happens, any information you have completed will be saved, so you can start from where you left off.
+        </p>
+      </div>
+
+      <button class="nhsuk-button" type="submit">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+{% endblock %}

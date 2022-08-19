@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Border response UKHSA introduction SMS
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half" style="background-color: #ffffff;">
+
+    <div class="">
+      <a href="#" class="govuk-back-link">Messages</a>
+
+      <h1 class="govuk-heading-s govuk-!-text-align-centre">
+        UKHSA
+      </h1>
+    </div>
+
+    <div class="govuk-!-width-one-quarters govuk-!-margin-top-2 govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: #d8dde0; border-radius: 15px;">
+
+      <p class="govuk-body">
+        DO NOT REPLY
+      </p>
+      <p class="govuk-body">
+        {{ data['plf-given-name'] | default('Sarah') }} {{ data['plf-family-name'] | default('Philips') }}
+      </p>
+      <p class="govuk-body">
+        This is the United Kingdom Health Security Agency (UKHSA).
+      </p>
+      <p class="govuk-body">
+        UKHSA is the UK government agency for public health protection.
+      </p>
+      <p class="govuk-body">
+        You will receive another message from us shortly from this number: +44 7860 057 406.
+      </p>
+    </div>
+
+    <form action="#" accept-charset="UTF-8" method="post">
+
+      <input id="sms-text-field" class="govuk-input govuk-!-width-three-quarters" autocomplete="off" spell_check="false" type="text" name="response0" value="{{ data['sms-response'] }}" placeholder="Text message">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Send
+      </button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
