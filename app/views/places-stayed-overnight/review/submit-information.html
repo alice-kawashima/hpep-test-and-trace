@@ -23,25 +23,25 @@ Check your answers | UK Health Security Agency
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          {{ data['address-1-line-1'] | default('1 Sovereign Way') }} (current address)
+          {{ data['current-address-line-1'] | default('1 Sovereign Way') }} (current address)
         </dd>
         <dd class="govuk-summary-list__actions" style="width: 30%">
-          <!--<a class="govuk-link" href="#">
+          <a class="govuk-link" href="#">
             Change<span class="govuk-visually-hidden"> address</span>
-          </a>-->
+          </a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          {{ data['address-2-line-1'] | default('33 Rocky Park Road') }}
+          {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}
         </dd>
         <dd class="govuk-summary-list__actions" style="width: 30%">
-          <!--<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>-->
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="/places-stayed-overnight/review/remove-place">Remove<span class="govuk-visually-hidden"> address</span></a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
-          {{ data['address-3-line-1'] | default('Southampton General Hospital') }}
+          {{ data['other-address-2-line-1'] | default('Southampton General Hospital') }}
         </dd>
         <dd class="govuk-summary-list__actions" style="width: 30%">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a> | <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> address</span></a>

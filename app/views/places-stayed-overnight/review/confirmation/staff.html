@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Your information is complete | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Your information is complete
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+    </h2>
+    <p class="govuk-body">
+      Make sure you tell the staff who look after you that you've tested positive for [disease type]. This is to help protect you and those around you.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Providing more information
+    </h2>
+    <p class="govuk-body">
+      You have up to 72 hours to update your answers.
+    </p>
+    <p class="govuk-body">
+      To access your account again, sign in to <strong>https://hpep.ukhsa.gov.uk</strong> using your account ID <strong>aa4cdfd6</strong>. You can ask a member of staff to do this for you.
+    </p>
+
+    <form action="#" method="post" class="form">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

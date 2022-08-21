@@ -17,7 +17,7 @@ Check your answers | UK Health Security Agency
     </h1>
 
     <h2 class="govuk-heading-m">
-      {{ data['address-1-line-1'] | default('1 Sovereign Way') }}
+      {{ data['current-address-line-1'] | default('1 Sovereign Way') }}
     </h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -26,9 +26,9 @@ Check your answers | UK Health Security Agency
           Address living or staying at right now
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-1-line-1'] | default('1 Sovereign Way') }}<br>
-          {{ data['address-1-town-city'] | default('Eastleigh') }}<br>
-          {{ data['address-1-post-code'] | default('SO50 4SA') }}
+          {{ data['current-address-line-1'] | default('1 Sovereign Way') }}<br>
+          {{ data['current-address-town-city'] | default('Eastleigh') }}<br>
+          {{ data['current-address-post-code'] | default('SO50 4SA') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -41,7 +41,7 @@ Check your answers | UK Health Security Agency
           Type of housing
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-1-housing-type'] | default('House or flat') }}
+          {{ data['current-address-housing-type'] | default('House or flat') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -52,7 +52,7 @@ Check your answers | UK Health Security Agency
     </dl>
 
     <h2 class="govuk-heading-m">
-      {{ data['address-2-line-1'] | default('Southampton General Hospital') }}
+      {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}
     </h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -61,10 +61,9 @@ Check your answers | UK Health Security Agency
           Address
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-2-line-1'] | default('Southampton General Hospital') }}<br>
-          {{ data['address-2-line-2'] | default('Tremona Road') }}<br>
-          {{ data['address-2-town-city'] | default('Southampton') }}<br>
-          {{ data['address-2-post-code'] | default('SO16 6YD') }}
+          {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}<br>
+          {{ data['other-address-1-town-city'] | default('Plymouth') }}<br>
+          {{ data['other-address-1-post-code'] | default('PL9 7DQ') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -77,7 +76,56 @@ Check your answers | UK Health Security Agency
           Type of housing
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-2-housing-type'] | default('Something else') }}
+          {{ data['other-address-1-housing-type'] | default('House or flat') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> type of housing</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Days stayed overnight
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['other-address-1-days-stayed'] | default('Monday 1 August') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> days stayed overnight</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">
+      {{ data['other-address-2-line-1'] | default('Southampton General Hospital') }}
+    </h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['other-address-2-line-1'] | default('Southampton General Hospital') }}<br>
+          {{ data['other-address-2-line-2'] | default('Tremona Road') }}<br>
+          {{ data['other-address-2-town-city'] | default('Southampton') }}<br>
+          {{ data['other-address-2-post-code'] | default('SO16 6YD') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> address</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of housing
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['other-address-2-housing-type'] | default('Something else') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -90,8 +138,8 @@ Check your answers | UK Health Security Agency
           Type of place
         </dt>
         <dd class="govuk-summary-list__value">
-          <p>{{ data['address-2-place-type'] | default('Another type of place') }}</p>
-          <p>{{ data['address-2-place-type-description'] | default('Hospital') }}</p>
+          <p>{{ data['other-address-2-place-type'] | default('Another type of place') }}</p>
+          <p>{{ data['other-address-2-place-type-description'] | default('Hospital') }}</p>
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -104,55 +152,7 @@ Check your answers | UK Health Security Agency
           Days stayed overnight
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-2-days-stayed'] | default('Tuesday 2 August') }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> days stayed overnight</span>
-          </a>
-        </dd>
-      </div>
-    </dl>
-
-    <h2 class="govuk-heading-m">
-      {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}
-    </h2>
-
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Address
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}<br>
-          {{ data['address-3-town-city'] | default('Plymouth') }}<br>
-          {{ data['address-3-post-code'] | default('PL9 7DQ') }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> address</span>
-          </a>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Type of housing
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['address-3-housing-type'] | default('House or flat') }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> type of housing</span>
-          </a>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Days stayed overnight
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['address-2-days-stayed'] | default('Monday 1 August') }}
+          {{ data['other-address-2-days-stayed'] | default('Tuesday 2 August') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">

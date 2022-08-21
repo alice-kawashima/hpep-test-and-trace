@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-What type of place is your current address? | UK Health Security Agency
+What type of place is your other address? | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,14 +12,14 @@ What type of place is your current address? | UK Health Security Agency
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
+    <form name="myForm" action="/places-stayed-overnight/other-address/days-stayed" onsubmit="return validateForm()" method="post" required>
 
       <div class="govuk-form-group" id="other-place-form-group">
         <fieldset class="govuk-fieldset">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What type of place is {{ data['current-address-line-1'] | default('1 Sovereign Way')}}?
+              What type of place is {{ data['other-address-line-1'] | default('33 Rocky Park Road')}}?
             </h1>
           </legend>
 

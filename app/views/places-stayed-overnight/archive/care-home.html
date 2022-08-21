@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Your information is complete | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-card">
+      <div class="govuk-card__content">
+        <h1 class="govuk-card__heading govuk-heading-l">
+          Your information is complete
+        </h1>
+        <p class="govuk-card__description">
+          Thank you for helping to stop the spread of COVID-19. This protects your community and the NHS.
+        </p>
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      You do not need to give us any more details right now. Care home staff can contact us if any changes or updates to your information are needed.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+    </h2>
+    <p class="govuk-body">
+      Make sure you tell care home staff that you have tested positive for COVID-19.
+    </p>
+    <p class="govuk-body">
+      Because you live in a care home, extra measures are in place to help keep you safe.
+    </p>
+    <p class="govuk-body">
+      A Local Health Protection Team will contact your care home management and staff. Together they will make a plan to support and protect everyone who lives and works at the home. They will also help with contact tracing.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Providing more information
+    </h2>
+    <p class="govuk-body">
+      You have up to 72 hours to enter more information or change your answers.
+    </p>
+    <p class="govuk-body">
+      To access your account again go to <a href="#" class="govuk-link govuk-link--no-visited-state">https://contact-tracing.phe.gov.uk/</a>, enter your account ID (aa4cdfd6) and the password that you created when prompted.
+    </p>
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function goBack() {
+    window.history.back();
+  }
+</script>
+{% endblock %}

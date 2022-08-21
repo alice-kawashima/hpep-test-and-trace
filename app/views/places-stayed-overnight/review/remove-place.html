@@ -13,7 +13,7 @@ Remove overnight stay | UK Health Security Agency
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Remove {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}
+      Remove {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}
     </h1>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -22,9 +22,9 @@ Remove overnight stay | UK Health Security Agency
           Address
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}<br>
-          {{ data['address-3-town-city'] | default('Plymouth') }}<br>
-          {{ data['address-3-post-code'] | default('PL9 7DQ') }}
+          {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}<br>
+          {{ data['other-address-1-town-city'] | default('Plymouth') }}<br>
+          {{ data['other-address-1-post-code'] | default('PL9 7DQ') }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -32,7 +32,7 @@ Remove overnight stay | UK Health Security Agency
           Type of housing
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-3-housing-type'] | default('House or flat') }}
+          {{ data['other-address-1-housing-type'] | default('House or flat') }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -45,14 +45,14 @@ Remove overnight stay | UK Health Security Agency
       </div>
     </dl>
 
-    <form action="/form-handler" method="post" novalidate>
+    <form name="myForm" action="/places-stayed-overnight/review/submit-information" onsubmit="return validateForm()" method="post" required>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h2 class="govuk-fieldset__heading">
-              Are you sure you want to remove {{ data['address-3-line-1'] | default('33 Rocky Park Road') }}?
+              Are you sure you want to remove {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}?
             </h2>
           </legend>
 

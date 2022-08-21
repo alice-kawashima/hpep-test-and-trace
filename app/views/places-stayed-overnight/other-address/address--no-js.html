@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Where else did you stay? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/places-stayed-overnight/other-address/housing-type" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Places stayed overnight</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-heading-l">
+              Where else did you stay?
+            </h1>
+          </legend>
+
+          <div id="other-address-1-hint" class="govuk-hint">
+            This might be your current home, or a place you're staying at, like a hotel or a friend's house.
+          </div>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="other-address-1-line-1">
+              Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+            </label>
+            <input class="govuk-input" id="other-address-1-line-1" name="other-address-1-line-1" type="text" value="">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="other-address-1-line-2">
+              <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+            </label>
+            <input class="govuk-input" id="other-address-1-line-2" name="other-address-1-line-2" type="text" value="">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="other-town-or-city">
+              Town or city
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="other-town-or-city" name="other-address-1-town-or-city" type="text" value="">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="other-address-1-postcode">
+              Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="other-address-1-postcode" name="other-address-1-postcode" type="text" value="">
+          </div>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link govuk-link--no-visited-state" id="search-another-address">
+              Search for another address
+            </a>
+          </p>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            <a href="/places-stayed/stayed-elsewhere" id="outside-uk-link" class="govuk-link govuk-link--no-visited-state">
+              I am outside of the UK right now
+            </a>
+          </p>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#h1-content').html('Where else did {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} stay?');
+      $('#other-address-1-hint').html('This might be their current home, or a place they&#39;re staying at, like a hotel or a friend&#39;s house.');
+      $('#outside-uk-link').html('They&#39;re outside of the UK right now');
+    }
+  }
+</script>
+{% endblock %}

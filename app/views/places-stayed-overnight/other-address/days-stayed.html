@@ -12,7 +12,7 @@ What type of place is your current address? | UK Health Security Agency
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form name="myForm" action="/case/about-you/vaccines/had-vaccine/had-vaccine" onsubmit="return validateForm()" method="post" required>
+    <form name="myForm" action="/places-stayed-overnight/other-address/check-answers" onsubmit="return validateForm()" method="post" required>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -70,7 +70,7 @@ What type of place is your current address? | UK Health Security Agency
     var proxyValue = "{{ data['proxy'] }}";
 
     if (proxyValue == "No") {
-      $('#h1-content').html('Which days was {{ data["upstream-case-given-names"] | default("Sarah") }} {{ data["upstream-case-family-name"] | default("Philips") }} at {{ data["stay-address-1-line-1"] | default("33 Rocky Park Road") }}?');
+      $('#h1-content').html('Which days was {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} at {{ data["stay-address-1-line-1"] | default("33 Rocky Park Road") }}?');
     }
   }
 </script>

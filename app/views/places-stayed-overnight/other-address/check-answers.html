@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-Check your answers for current address | UK Health Security Agency
+Check your answers for an overnight stay | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@ Check your answers for current address | UK Health Security Agency
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Check your answers for {{ data['address-1-line-1'] | default('1 Sovereign Way') }}
+      Check your answers for {{ data['other-address-1-line-1'] | default('1 Sovereign Way') }}
     </h1>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -22,9 +22,9 @@ Check your answers for current address | UK Health Security Agency
           Address living or staying at right now
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-1-line-1'] | default('1 Sovereign Way') }}<br>
-          {{ data['address-1-town-city'] | default('Eastleigh') }}<br>
-          {{ data['address-1-post-code'] | default('SO50 4SA') }}
+          {{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}<br>
+          {{ data['other-address-1-town-city'] | default('Plymouth') }}<br>
+          {{ data['other-address-1-post-code'] | default('SO50 4SA') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -37,7 +37,7 @@ Check your answers for current address | UK Health Security Agency
           Type of housing
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address-1-housing-type'] | default('House or flat') }}
+          {{ data['other-address-1-housing-type'] | default('House or flat') }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -47,7 +47,7 @@ Check your answers for current address | UK Health Security Agency
       </div>
     </dl>
 
-    <form action="/places-stayed-overnight/other-address/anywhere-else" method="post" novalidate>
+    <form action="/places-stayed-overnight/review/anywhere-else" method="post" novalidate>
 
       <input type="hidden" name="answers-checked" value="true">
 

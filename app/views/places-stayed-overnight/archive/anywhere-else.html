@@ -19,7 +19,7 @@ Did you stay anywhere else? | UK Health Security Agency
       <div class="govuk-inset-text">
         <p><strong>Already added:</strong></p>
         <ul class="govuk-list">
-          <li>{{ data['address-1-line-1'] | default('1 Sovereign Way') }}, {{ data['address-1-line-2'] | default('Eastleigh') }}, {{ data['address-1-post-code'] | default('SO50 4SA') }}</li>
+          <li>{{ data['current-address-line-1'] | default('1 Sovereign Way') }}, {{ data['address-1-line-2'] | default('Eastleigh') }}, {{ data['address-1-post-code'] | default('SO50 4SA') }}</li>
         </ul>
       </div>
 
@@ -39,15 +39,15 @@ Did you stay anywhere else? | UK Health Security Agency
             <div class="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="anyone-else-yes" name="anyone-else" type="radio" value="Yes, I need to add another person">
-                <label class="govuk-label govuk-radios__label" for="anyone-else-yes">
+                <input class="govuk-radios__input" id="anyone-else-yes" name="anyone-else" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="anywhere-else-yes">
                   Yes
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="anyone-else-no" name="anyone-else" type="radio" value="No, I do not need to add anyone">
-                <label class="govuk-label govuk-radios__label" for="anyone-else-no">
+                <input class="govuk-radios__input" id="anyone-else-no" name="anyone-else" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="anywhere-else-no">
                   No
                 </label>
               </div>
@@ -72,7 +72,7 @@ Did you stay anywhere else? | UK Health Security Agency
     var proxyValue = "{{ data['proxy'] }}";
 
     if (proxyValue == "No") {
-      $('#h2-content').html('Did {{ data["upstream-case-given-names"] | default("Sarah") }} {{ data["upstream-case-family-name"] | default("Philips") }} stay anywhere else?');
+      $('#h2-content').html('Did {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} stay anywhere else?');
     }
   }
 </script>

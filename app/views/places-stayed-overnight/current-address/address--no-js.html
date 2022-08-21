@@ -46,14 +46,14 @@ Where are you living or staying right now? | UK Health Security Agency
             <label class="govuk-label" for="current-town-or-city">
               Town or city
             </label>
-            <input class="govuk-input govuk-!-width-two-thirds" id="current-town-or-city" name="current-town-or-city" type="text" value="">
+            <input class="govuk-input govuk-!-width-two-thirds" id="current-address-town-or-city" name="current-town-or-city" type="text" value="">
           </div>
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="current-postcode">
               Postcode
             </label>
-            <input class="govuk-input govuk-input--width-10" id="current-postcode" name="current-postcode" type="text" value="">
+            <input class="govuk-input govuk-input--width-10" id="current-address-postcode" name="current-postcode" type="text" value="">
           </div>
 
         </fieldset>
@@ -62,7 +62,7 @@ Where are you living or staying right now? | UK Health Security Agency
       <hr class="govuk-section-break govuk-section-break--m">
 
       <p class="govuk-body">
-        <a href="/contact/about-you/addresses/current/search/state-1" class="govuk-link govuk-link--no-visited-state">
+        <a href="/places-stayed-overnight/review/anywhere-else" class="govuk-link govuk-link--no-visited-state">
           I am outside of the UK right now
         </a>
       </p>
@@ -78,6 +78,15 @@ Where are you living or staying right now? | UK Health Security Agency
 </div>
 
 <script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
 
+    if (proxyValue == "No") {
+      $('#h1-content').html('Where is {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} living or staying right now?');
+      $('#current-address-hint').html('This might be their current home, or a place they&#39;re staying at, like a hotel or a friend&#39;s house.');
+      $('#outside-uk-link').html('They&#39;re outside of the UK right now');
+    }
+  }
 </script>
 {% endblock %}
