@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-Who else lives with you? | UK Health Security Agency
+Did you stay anywhere else? | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +25,7 @@ Who else lives with you? | UK Health Security Agency
 
       <hr class="govuk-section-break govuk-section-break--m">
 
-      <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
+      <form name="myForm" action="/places-stayed-overnight/other-address/address" onsubmit="return validateForm()" method="post" required>
 
         <div class="govuk-form-group" id="anyone-else-form-group">
           <fieldset class="govuk-fieldset">

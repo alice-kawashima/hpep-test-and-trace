@@ -12,19 +12,16 @@ What type of place is your current address? | UK Health Security Agency
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form name="myForm" action="/case/about-you/vaccines/had-vaccine/had-vaccine" onsubmit="return validateForm()" method="post" required>
+    <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
 
       <div class="govuk-form-group" id="other-place-form-group">
         <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                What type of place is {{ data['current-address-line-1'] | default('1 Sovereign Way')}}?
-              </h1>
-            </legend>
-
-          <span class="govuk-error-message" id="other-place-error-message">
-          </span>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of place is {{ data['current-address-line-1'] | default('1 Sovereign Way')}}?
+            </h1>
+          </legend>
 
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
 

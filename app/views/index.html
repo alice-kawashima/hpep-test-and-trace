@@ -9,7 +9,7 @@ Index of HPEP prototype pages | UK Health Security Agency
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      Index of HPEP prototype pages
+      HPEP page index
     </h1>
 
     <h2 class="govuk-heading-l">
@@ -323,12 +323,12 @@ Index of HPEP prototype pages | UK Health Security Agency
           </p>
           <ul class="govuk-list">
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/case">
-                Know NHS number
+              <a class="govuk-link govuk-link--no-visited-state" href="/health-information/nhs-number/know">
+                Do you know your NHS number?
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/personal-details/name/exposed-individual">
+              <a class="govuk-link govuk-link--no-visited-state" href="/health-information/nhs-number/number">
                 What is your NHS number?
               </a>
             </li>
@@ -389,13 +389,39 @@ Index of HPEP prototype pages | UK Health Security Agency
           </p>
           <ul class="govuk-list">
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms">
-                Symptoms
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/avian-influenza">
+                Avian Influenza
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms">
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/covid-19">
+                COVID-19
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/covid-19">
+                COVID-19 (locked)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/monkeypox">
+                Monkeypox
+              </a>
+            </li>
+          </ul>
+
+          <p class="govuk-body">
+            Symptoms start date
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/symptoms-start-date">
                 Symptoms start date
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/symptoms/symptoms-start-date--locked">
+                Symptoms start date (locked)
               </a>
             </li>
           </ul>
@@ -455,18 +481,28 @@ Index of HPEP prototype pages | UK Health Security Agency
           </p>
           <ul class="govuk-list">
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
-                Current address
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/current-address/address">
+                Where are you living or staying right now?
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
-                Accommodation type
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/current-address/address--no-js">
+                Where are you living or staying right now? (JavaScript disabled)
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
-                Check answers
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/current-address/housing-type">
+                What type of housing is your current address?
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/current-address/other-place">
+                What type of place is your current address?
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/current-address/check-answers">
+                Check your answers for current address
               </a>
             </li>
           </ul>
@@ -478,27 +514,32 @@ Index of HPEP prototype pages | UK Health Security Agency
           </p>
           <ul class="govuk-list">
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/anywhere-else">
                 Stayed anywhere else?
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/address">
                 Address of place
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
-                Accommodation type
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/housing-type">
+                What type of housing is your current address?
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/other-place">
+                What type of place is your current address?
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/dates-stayed">
                 Dates stayed overnight
               </a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="#">
+              <a class="govuk-link govuk-link--no-visited-state" href="/places-stayed-overnight/other-address/check-answers">
                 Check answers
               </a>
             </li>
@@ -682,438 +723,569 @@ Index of HPEP prototype pages | UK Health Security Agency
       Where you travelled
     </h2>
 
-    <h3 class="govuk-heading-m">
-      International travel
-    </h3>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              International travel
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Travelled outside UK?
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Travelled outside UK?
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Trip
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Trip route
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Arrival date and time
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Other countries?
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Countries
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Service details
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Actual travel details
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Onward domestic travel
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Arrival date and time
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Service details
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Actual travel details
+              </a>
+            </li>
+          </ul>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Check answers
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Submit information
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Remove trip
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Another trip? (Returning user)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Domestic flights
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
+          Taken domestic flight?
+          - Taken domestic flight?
+
+          Trip
+          - Flight route
+          - Arrival date and time
+          - Service details
+          - Actual travel details
+
+          Review
+          - Check answers
+          - Submit information
+          - Remove trip
+          - Another trip (returning user)
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <hr class="govuk-section-break govuk-section-break--l">
-
-    <h3 class="govuk-heading-m">
-      Domestic flights
-    </h3>
-
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
     <h2 class="govuk-heading-l">
       Places you visited
     </h2>
 
-    <h3 class="govuk-heading-m">
-      Places of activities outside your home
-    </h3>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Places of activities outside your home
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              People at activities outside your home
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Review
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Health advice
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <hr class="govuk-section-break govuk-section-break--l">
-
-    <h3 class="govuk-heading-m">
-      People at activities outside your home
-    </h3>
-
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Review
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Health advice
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
     <h2 class="govuk-heading-l">
       About your contacts
     </h2>
 
-    <h3 class="govuk-heading-m">
-      International travel of contacts
-    </h3>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              International travel of contacts
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Had contact and they travelled
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Had contact with positive case
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                People that tested positive travelled internationally
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Countries they visited
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Had contact and they travelled
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Had contact with positive case
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          People that tested positive travelled internationally
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Countries they visited
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Check answers (International travel of contacts)
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers">
+                Check your answers before submitting your information
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers--locked">
+                Check your answers before submitting your information (locked)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Cause of infection
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class="govuk-body">
+            How and where
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Think know cause
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Think know where
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Check answers (International travel of contacts)
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers">
-          Check your answers before submitting your information
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers--locked">
-          Check your answers before submitting your information (locked)
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Household
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Think know who (household)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Know if tested positive
+              </a>
+            </li>
+          </ul>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Non-household
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Know if a person tested positive
+              </a>
+            </li>
+          </ul>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            Check answers (Cause of infection)
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers">
+                Check your answers before submitting your information
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers--locked">
+                Check your answers before submitting your information (locked)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <hr class="govuk-section-break govuk-section-break--l">
-
-    <h3 class="govuk-heading-m">
-      Cause of infection
-    </h3>
-
-    <p class="govuk-body">
-      How and where
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Think know cause
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Think know where
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Household
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Think know who (household)
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Know if tested positive
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Non-household
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Know if a person tested positive
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Check answers (Cause of infection)
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers">
-          Check your answers before submitting your information
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/symptoms-and-health-advice/check-answers--locked">
-          Check your answers before submitting your information (locked)
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <h2 class="govuk-heading-l">
-      Additional information
-    </h2>
-
-    <h3 class="govuk-heading-m">
-      Support
-    </h3>
-
-    <p class="govuk-body">
-      Support
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Support
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
     <h2 class="govuk-heading-l">
       Complete form
     </h2>
 
-    <h3 class="govuk-heading-m">
-      Equality information
-    </h3>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Support
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Support
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Support
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Equality information
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Answer equality questions?
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Answer equality questions?
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Answer equality questions?
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Answer equality questions?
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Date of birth
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Date of birth
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Date of birth
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Date of birth
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Sex and gender identity
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Sex and gender identity
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Sex and gender identity
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Sex and gender identity
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--m">
+          <p class="govuk-body">
+            Ethnicity
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Ethnic background: White
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Ethnic background: Mixed
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Ethnic background: Asian
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Ethnic background: Black
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Ethnic background: Other
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Submit
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class="govuk-body">
+            Border response compliance
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Agreement
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Confirmation (compliant)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Confirmation (non-compliant)
+              </a>
+            </li>
+          </ul>
 
-    <p class="govuk-body">
-      Ethnicity
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Ethnic background: White
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Ethnic background: Mixed
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Ethnic background: Asian
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Ethnic background: Black
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Ethnic background: Other
-        </a>
-      </li>
-    </ul>
+          <hr class="govuk-section-break govuk-section-break--m">
 
-    <hr class="govuk-section-break govuk-section-break--l">
-
-    <h3 class="govuk-heading-m">
-      Submit
-    </h3>
-
-    <p class="govuk-body">
-      Border response compliance
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Agreement
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Confirmation (compliant)
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Confirmation (non-compliant)
-        </a>
-      </li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Confirmation
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Positive case
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Exposed individual
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Escalation
-        </a>
-      </li>
-    </ul>
+          <p class="govuk-body">
+            Confirmation
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Positive case
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Exposed individual
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Escalation
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <hr class="govuk-section-break govuk-section-break--l">
 
@@ -1121,49 +1293,72 @@ Index of HPEP prototype pages | UK Health Security Agency
       Other pages
     </h2>
 
-    <p class="govuk-body">
-      Server errors
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Agreement
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Confirmation (compliant)
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Confirmation (non-compliant)
-        </a>
-      </li>
-    </ul>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Server errors
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class="govuk-body">
+            Server errors
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Agreement
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Confirmation (compliant)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Confirmation (non-compliant)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Other pages
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+          <p class="govuk-body">
+            Other pages
+          </p>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Positive case
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Exposed individual
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Escalation
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <hr class="govuk-section-break govuk-section-break--m">
-
-    <p class="govuk-body">
-      Other pages
-    </p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Positive case
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Exposed individual
-        </a>
-      </li>
-      <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="#">
-          Escalation
-        </a>
-      </li>
-    </ul>
+    <hr class="govuk-section-break govuk-section-break--l">
 
     <p class="govuk-body-s">
       Last updated 16 August 2022

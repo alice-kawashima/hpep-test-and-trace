@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+What type of place is your current address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="/places-stayed-overnight/current-address/check-answers" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="other-place-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of place is {{ data['current-address-line-1'] | default('1 Sovereign Way')}}?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input id="care-home" class="govuk-radios__input" type="radio" value="Care home" name="other-place">
+              <label for="prison" class="govuk-label govuk-radios__label">
+                Care home
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="prison" class="govuk-radios__input" type="radio" value="Prison" name="other-place">
+              <label for="prison" class="govuk-label govuk-radios__label">
+                Prison
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input id="another-type" class="govuk-radios__input" type="radio" value="Another type of place" name="other-place" data-aria-controls="other-conditional">
+              <label for="another-type" class="govuk-label govuk-radios__label">
+                Another type of place
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="other-conditional">
+              <div class="govuk-form-group">
+                <label for="event-description" class="govuk-label">
+                  Describe the place (optional)
+                </label>
+                <input id="event-description" class="govuk-input govuk-!-width-two-thirds" type="text" value="" name="other-place-description">
+              </div>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

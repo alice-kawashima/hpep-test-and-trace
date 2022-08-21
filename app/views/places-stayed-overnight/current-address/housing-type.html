@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-What type of home is your current address? | UK Health Security Agency
+What type of housing is your current address? | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@ What type of home is your current address? | UK Health Security Agency
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
+    <form name="myForm" action="/places-stayed-overnight/current-address/check-answers" onsubmit="return validateForm()" method="post" required>
 
       <div class="govuk-form-group" id="housing-type-form-group">
         <fieldset class="govuk-fieldset">
