@@ -20,7 +20,7 @@ When did you come into contact with this person? | UK Health Security Agency
 
           <legend class="govuk-fieldset__legend govuk-label--l">
             <h1 class="govuk-fieldset__heading">
-              When did Elizabeth Jones visit {{ data['current-address-line-1'] | default('1 Sovereign Way') }}?
+              When did {{ data['contact-first-name-1'] | default('Elizabeth') }} {{ data['contact-last-name-1'] | default('Jones') }} visit {{ data['current-address-line-1'] | default('1 Sovereign Way') }}?
             </h1>
           </legend>
           <div class="govuk-hint" id="example-hint">

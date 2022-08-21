@@ -59,7 +59,7 @@ People at address | UK Health Security Agency
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h2 id="h2-content" class="govuk-fieldset__heading">
-              Did you have anyone visit or stay overnight?
+              Did you have anyone stay overnight or visit?
             </h2>
           </legend>
 
@@ -103,7 +103,7 @@ People at address | UK Health Security Agency
 
     if (proxyValue == "No") {
       $('#do-item-1-content').html('include visitors they had close contact with, like friends, family or anyone who worked at their home');
-      $('#h2-content').html('Did {{ data["case-given-names"] | default("Sarah") }} {{ data["case-family-name"] | default("Philips") }} have anyone visit or stay overnight?');
+      $('#h2-content').html('Did {{ data["case-given-names"] | default("Sarah") }} {{ data["case-family-name"] | default("Philips") }} have anyone stay overnight or visit?');
     }
   }
 </script>
