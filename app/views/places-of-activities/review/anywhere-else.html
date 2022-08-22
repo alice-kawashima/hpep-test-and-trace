@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your places you stayed overnight | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 id="h1-content" class="govuk-heading-l">
+      Check the places you stayed overnight from Monday 1 August 2022 to Wednesday 3 August 2022
+    </h1>
+
+    <div class="govuk-inset-text">
+      <p><strong>Already added:</strong></p>
+      <ul class="govuk-list">
+        <li>{{ data['current-address-line-1'] | default('1 Sovereign Way') }}, {{ data['current-address-town-or-city'] | default('Eastleigh') }}</li>
+        <li>{{ data['other-address-1-line-1'] | default('33 Rocky Park Road') }}, {{ data['current-address-town-or-city'] | default('Plymouth') }}</li>
+        <li>{{ data['other-address-2-line-1'] | default('Southampton General Hospital') }}, {{ data['current-address-town-or-city'] | default('Southampton') }}</li>
+      </ul>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <form name="myForm" action="/places-stayed-overnight/review/submit-information" onsubmit="return validateForm()" method="post" required>
+
+      <div class="govuk-form-group" id="anywhere-else-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 id="h2-content" class="govuk-fieldset__heading">
+              Do you need to add another place?
+            </h2>
+          </legend>
+
+          <div class="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="anywhere-else-yes" name="anywhere-else" type="radio" value="Yes, I need to add another person">
+              <label class="govuk-label govuk-radios__label" for="anywhere-else-yes">
+                Yes, I need to add another place
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="anywhere-else-no" name="anywhere-else" type="radio" value="No, I do not need to add anywhere">
+              <label class="govuk-label govuk-radios__label" for="anywhere-else-no">
+                No, I do not need to add another place
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#h1-content').html('Check the places {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} stayed overnight from Monday 1 August 2022 to Wednesday 3 August 2022');
+      $('#h2-content').html('Did {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} stay anywhere else?');
+    }
+  }
+
+  // Errors
+  function validateForm() {
+    var anywhereElse = document.forms["myForm"]["anywhere-else"].value;
+
+    if (anywhereElse == "" || anywhereElse == null) {
+
+      // Error form group styling
+      var formGroup = document.getElementById("anywhere-else-form-group");
+      formGroup.classList.add("govuk-form-group--error");
+
+      // Error message
+      document.getElementById("anywhere-else-error-message").innerHTML = '<span class="govuk-u-visually-hidden">Error:</span> Select yes if you need to add another person';
+
+      // Error summary
+      var errorSummary = document.getElementById("error-summary");
+      errorSummary.innerHTML =
+        '<h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#anywhere-else-error-message">Select yes if you need to add another person</a></li></ul></div>';
+      errorSummary.style.display = 'block';
+      errorSummary.focus();
+      return false;
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Do you know their email address? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form name="myForm" action="#" onsubmit="return validateForm()" method="post" required>
+
+      <span class="govuk-caption-l">People at places stayed overnight</span>
+      <div class="govuk-form-group" id="know-email-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Do you know {{ data['contact-first-name-1'] | default('Elizabeth') }} {{ data['contact-last-name-1'] | default('Jones') }}&#39;s email address?
+            </h1>
+          </legend>
+
+          <div class="govuk-hint">
+            Consider using contact details of a responsible adult that can pass on the advice to the person. For example, if the person is a child or someone in care.
+          </div>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="know-contact-email-address-yes" name="know-contact-email-address-1" type="radio" data-aria-controls="conditional-contact-1" aria-expanded="false" value="Yes" {{ checked("contact-email-address-1", "Yes") }}>
+              <label class="govuk-label govuk-radios__label" for="know-contact-email-address-yes">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-email-address-1">
+                  Email address
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="contact-email-address-1" name="contact-email-address-1" type="email" spellcheck="false" autocomplete="email" value="{{ data['contact-email-1'] }}">
+              </div>
+
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="know-contact-email-address-no" name="know-contact-email-address-1" type="radio" value="No" {{ checked("contact-email-address-1", "No") }}>
+              <label class="govuk-label govuk-radios__label" for="know-contact-email-address-no">
+                No
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

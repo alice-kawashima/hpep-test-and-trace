@@ -1,0 +1,151 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Check your answers for this visitor | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">People at places stayed overnight</span>
+    <h1 class="govuk-heading-l">
+      Check your answers for {{ data['contact-given-names-1'] | default('Elizabeth') }} {{ data['contact-family-name-1'] | default('Jones') }}
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['contact-given-names-1'] | default('Elizabeth') }} {{ data['contact-family-name-1'] | default('Jones') }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/names/add-another" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> their name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Stayed overnight
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/know-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if they stayed overnight</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Dates visited
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>Tuesday 2 August</p>
+          <p>Wednesday 3 August</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/enter-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> their date of visit</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          elizabeth.jones@example.com
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/enter-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> their email address</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07712345678
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/email/enter-email" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> their telephone number</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Over 18
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/date-of-birth/know-date-of-birth" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if they are over 18</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Lived in England
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/sex" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> if they live in England</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Wales
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="/case/household/contacts/sex" class="govuk-link govuk-link--no-visited-state">
+            Change<span class="govuk-visually-hidden"> where they live</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="/case/household/visitors/check-answers/anyone-else" accept-charset="UTF-8" method="post">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

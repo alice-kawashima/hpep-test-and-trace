@@ -1,0 +1,190 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Where are you living or staying right now? | UK Health Security Agency
+{% endblock %}
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link" onclick="goBack()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/places-stayed-overnight/current-address/housing-type" accept-charset="UTF-8" method="post">
+
+      <span class="govuk-caption-l">Places stayed overnight</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 id="h1-content" class="govuk-heading-l">
+              Where are you living or staying right now?
+            </h1>
+          </legend>
+
+          <div id="current-address-hint" class="govuk-hint">
+            This might be your current home, or a place you're staying at, like a hotel or a friend's house.
+          </div>
+
+          <hr class="govuk-section-break govuk-section-break--m">
+
+          <div id="current-address-search">
+
+            <label for="address-lookup" class="govuk-label">
+              Address search
+            </label>
+
+            <div class="govuk-hint">
+              For example, SW1A 1AA or 12 Main Street or Tower Building
+            </div>
+
+            <div id="my-autocomplete-container" class="autocomplete__wrapper">
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m">
+
+            <p class="govuk-body">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" id="cant-find-address" onclick="">
+                Can't find the address you are looking for?
+              </a>
+            </p>
+
+          </div>
+
+          <div id="current-address-fields" hidden>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="current-address-line-1">
+                Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+              </label>
+              <input class="govuk-input" id="current-address-line-1" name="current-address-line-1" type="text" value="">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="current-address-line-2">
+                <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+              </label>
+              <input class="govuk-input" id="current-address-line-2" name="current-address-line-2" type="text" value="">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="current-town-or-city">
+                Town or city
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="current-town-or-city" name="current-town-or-city" type="text" value="">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="current-postcode">
+                Postcode
+              </label>
+              <input class="govuk-input govuk-input--width-10" id="current-postcode" name="current-postcode" type="text" value="">
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m">
+
+            <p class="govuk-body">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" id="search-another-address">
+                Search for another address
+              </a>
+            </p>
+
+          </div>
+
+          <hr id="add-view-above" class="govuk-section-break govuk-section-break--m">
+
+          <p class="govuk-body">
+            <a href="/places-stayed-overnight/review/anywhere-else" id="outside-uk-link" class="govuk-link govuk-link--no-visited-state">
+              I am outside of the UK right now
+            </a>
+          </p>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+<script>
+  window.onload = function() {
+    // Proxy check
+    var proxyValue = "{{ data['proxy'] }}";
+
+    if (proxyValue == "No") {
+      $('#h1-content').html('Where is {{ data["positive-case-given-names"] | default("Sarah") }} {{ data["positive-case-family-name"] | default("Philips") }} living or staying right now?');
+      $('#current-address-hint').html('This might be their current home, or a place they&#39;re staying at, like a hotel or a friend&#39;s house.');
+      $('#outside-uk-link').html('They&#39;re outside of the UK right now');
+    }
+
+    // Can't find the address you are looking for? CTA
+    $("#cant-find-address").click(function() {
+      $('#current-address-search').hide();
+      $('#current-address-fields').show();
+    });
+
+    // Search for another address CTA
+    $("#search-another-address").click(function() {
+      $('#current-address-fields').hide();
+      $('#current-address-search').show();
+    });
+  }
+
+  const addresses1 = [
+    'Sovereign Way, Trafalgar Industrial Estate, Downham Market, PE38 9SW - More addresses',
+    'Sovereign Way Dock Road, Birkenhead, CH41 1DL - More addresses',
+    'Sovereign Way, St. Albans, AL3 5FB - More addresses',
+    'Sovereign Way, Moseley, Birmingham, B13 8AT - More addresses',
+    'Sovereign Way, Cottenham, Cambridge, CB24 8XR - More addresses',
+    'Sovereign Way, Chester West Employment Park, Chester, CH1 4QJ - More addresses',
+    'Sovereign Way, Oakwood, Derby, DE21 2XU - More addresses',
+    'Sovereign Way, Heanor, DE75 7SB - More addresses',
+    'Sovereign Way, Kingswood, Hull, HU7 3JG - More addresses',
+    'Sovereign Way, Mansfield, NG18 4LQ - More addresses',
+    'Sovereign Way, Eastleigh, SO50 4SA - More addresses'
+  ]
+
+  const addresses2 = [
+    '1 Sovereign Way, Trafalgar Industrial Estate, Downham Market, PE38 9SW',
+    '1 Sovereign Way, Cottenham, Cambridge, CB24 8XR',
+    '1 Sovereign Way, Oakwood, Derby, DE21 2XU',
+    '1 Sovereign Way, Heanor, DE75 7SB',
+    '1 Sovereign Way, Kingswood, Hull, HU7 3JG',
+    '1 Sovereign Way, Ryde, PO33 3DL',
+    '1 Sovereign Way, Calcot, Reading, RG31 4US',
+    '1 Sovereign Way, Eastleigh, SO50 4SA',
+    '1 Sovereign Way, Liverpool, L11 4RH',
+    '1 Sovereign Way, Chapel-en-le-Frith, High Peak, SK23 0RE'
+  ]
+
+  var addresses = new Array();
+  addresses[0] = "1 Sovereign Way, Trafalgar Industrial Estate, Downham Market, PE38 9SW";
+  addresses[1] = "1 Sovereign Way, Cottenham, Cambridge, CB24 8XR";
+  addresses[2] = "1 Sovereign Way, Oakwood, Derby, DE21 2XU";
+  addresses[3] = "1 Sovereign Way, Heanor, DE75 7SB";
+  addresses[4] = "1 Sovereign Way, Kingswood, Hull, HU7 3JG";
+  addresses[5] = "1 Sovereign Way, Ryde, PO33 3DL";
+  addresses[6] = "1 Sovereign Way, Calcot, Reading, RG31 4US";
+  addresses[7] = "1 Sovereign Way, Eastleigh, SO50 4SA";
+  addresses[8] = "1 Sovereign Way, Liverpool, L11 4RH";
+  addresses[9] = "1 Sovereign Way, Chapel-en-le-Frith, High Peak, SK23 0RE";
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: addresses
+    //if addresses[7] selected then show fields with address populated
+  })
+</script>
+
+<noscript><meta http-equiv="refresh" content="0; url=address--no-js.html" /></noscript>
+{% endblock %}

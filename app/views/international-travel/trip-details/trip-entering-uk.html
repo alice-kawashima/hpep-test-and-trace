@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-Did these people travel outside of the UK shortly before they tested positive for [disease type]? | UK Health Security Agency
+Tell us about a trip entering the UK | UK Health Security Agency
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@ Did these people travel outside of the UK shortly before they tested positive fo
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/case/household/contacts/currently-isolating" accept-charset="UTF-8" method="post">
+    <form action="#" accept-charset="UTF-8" method="post">
 
       <h1 class="govuk-heading-l">
         Tell us about a trip entering the UK
@@ -41,44 +41,43 @@ Did these people travel outside of the UK shortly before they tested positive fo
           Only add stops if they connect journeys of a non-direct trip
         </div>
 
-      <p id="rowcontainer" class="govuk-body">
-        <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
-          Add another country
-        </a>
-      </p>
+        <p id="rowcontainer" class="govuk-body">
+          <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
+            Add another country
+          </a>
+        </p>
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="first-name">
-          UK arrival port
-        </label>
-        <div class="govuk-hint">
-          This is the transport types
-        </div>
-        <div id="my-autocomplete-container-1" name="country-1" class="autocomplete__wrapper my-autocomplete-container govuk-!-width-two-thirds">
-        </div>
-      </div>
-
-
-
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="first-name">
-          Stops (after arriving in the UK)
-        </label>
-        <div class="govuk-hint">
-          Only add stops if they connect journeys of a non-direct trip
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="first-name">
+            UK arrival port
+          </label>
+          <div class="govuk-hint">
+            This is the transport types
+          </div>
+          <div id="my-autocomplete-container-1" name="country-1" class="autocomplete__wrapper my-autocomplete-container govuk-!-width-two-thirds">
+          </div>
         </div>
 
-      <p id="rowcontainer" class="govuk-body">
-        <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
-          Add stop
-        </a>
-      </p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="first-name">
+            Stops (after arriving in the UK)
+          </label>
+          <div class="govuk-hint">
+            Only add stops if they connect journeys of a non-direct trip
+          </div>
+        </div>
 
-      <hr class="govuk-section-break govuk-section-break--m">
+        <p id="rowcontainer" class="govuk-body">
+          <a href="#" id="add-country" class="govuk-link govuk-link--no-visited-state">
+            Add stop
+          </a>
+        </p>
 
-      <button class="govuk-button" data-module="govuk-button">
-        Save and continue
-      </button>
+        <hr class="govuk-section-break govuk-section-break--m">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
 
     </form>
 
